@@ -22,6 +22,11 @@ struct ContentView: View {
          }) {
             Text("Hit me!")
          }
+         .alert(isPresented: self.$alertIsVisible) {
+            Alert(title: Text("Hello there!"),
+                  message: Text("This is my first pop-up."),
+                  dismissButton: .default(Text("Awesome!")))
+         }
       }
    }
 }
@@ -31,3 +36,4 @@ struct ContentView_Previews: PreviewProvider {
       ContentView()
    }
 }
+
