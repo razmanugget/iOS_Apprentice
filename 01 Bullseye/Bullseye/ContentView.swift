@@ -13,7 +13,7 @@ struct ContentView: View {
 
    var body: some View {
       VStack {
-         Text("hey there!!")
+         Text("hey there!")
             .fontWeight(.semibold)
             .foregroundColor(.green)
          Button(action: {
