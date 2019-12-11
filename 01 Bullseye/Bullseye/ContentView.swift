@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+   @State var alertIsVisible: Bool = false
+
    var body: some View {
       VStack {
          Text("hey there!!")
@@ -16,6 +18,7 @@ struct ContentView: View {
             .foregroundColor(.green)
          Button(action: {
             print("Button pressed!")
+            self.alertIsVisible = true
          }) {
             Text("Hit me!")
          }
