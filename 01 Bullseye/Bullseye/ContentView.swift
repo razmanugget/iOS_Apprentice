@@ -25,7 +25,11 @@ struct ContentView: View {
          }
          
          // Slider row
-         // TODO: Add views for the slider row here
+         HStack {
+            Text("1")
+            Slider(value: .constant(10))
+            Text("100")
+         }
          
          // Button row
          Button(action: {
@@ -41,7 +45,14 @@ struct ContentView: View {
          }
          
          // Score row
-         // TODO: Add views for score, rounds, start and info
+         HStack {
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Text("Start over")
+            }
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Text("Info")
+            }
+         }
       }
    }
    
