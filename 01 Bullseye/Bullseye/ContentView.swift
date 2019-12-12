@@ -19,9 +19,10 @@ struct ContentView: View {
       
       VStack {
          // Target row
-         Text("hey there!")
-            .fontWeight(.semibold)
-            .foregroundColor(.green)
+         HStack {
+            Text("Put the bullseye as close as you can to:")
+            Text("100")
+         }
          
          // Slider row
          // TODO: Add views for the slider row here
