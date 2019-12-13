@@ -41,14 +41,14 @@ struct ContentView: View {
          
          // Button row
          Button(action: {
-            print("Button pressed!")
+            print("Points awarded: \(self.pointsForCurrentRound())")
             self.alertIsVisible = true
          }) {
             Text("Hit me!")
          }
          .alert(isPresented: self.$alertIsVisible) {
             Alert(title: Text("Hello there!"),
-                  message: Text("The slider's value is \(Int(sliderValue.rounded()))."),
+                  message: Text("The slider's value is \(Int(self.sliderValue.rounded())).\n" + "The target value is \(self.target).\n" + "You scored \(self.pointsForCurrentRound()) points this round."),
                   dismissButton: .default(Text("Awesome!")))
          }
          
