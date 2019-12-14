@@ -10,12 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
    // Properties
+   var sliderValueRounded: Int {
+      Int(self.sliderValue.rounded())
+   }
    
    // User interface views
    @State var alertIsVisible: Bool = false
    @State var sliderValue: Double = 50.0
    @State var target: Int = Int.random(in: 1...100)
-   
    
    // User interface content and layout
    var body: some View {
@@ -48,7 +50,9 @@ struct ContentView: View {
          }
          .alert(isPresented: self.$alertIsVisible) {
             Alert(title: Text("Hello there!"),
-                  message: Text("The slider's value is \(Int(self.sliderValue.rounded())).\n" + "The target value is \(self.target).\n" + "You scored \(self.pointsForCurrentRound()) points this round."),
+                  message: Text("The slider's value is \(Int(self.sliderValue.rounded())).\n" +
+                     "The target value is \(self.target).\n" +
+                     "You scored \(pointsForCurrentRound()) points this round."),
                   dismissButton: .default(Text("Awesome!")))
          }
          
@@ -76,7 +80,6 @@ struct ContentView: View {
    
    // Methods
    func pointsForCurrentRound() -> Int {
-      let sliderValueRounded = Int(self.sliderValue.rounded())
       let difference: Int
       
       if sliderValueRounded > self.target {
