@@ -17,6 +17,7 @@ struct ContentView: View {
    @State var sliderValue = 50.0
    @State var target = Int.random(in: 1...100)
    @State var score = 0
+   @State var round = 1
    
    // computed
    var sliderValueRounded: Int {
@@ -55,7 +56,11 @@ struct ContentView: View {
          .alert(isPresented: self.$alertIsVisible) {
             Alert(title: Text("Hello there!"),
                   message: Text(self.scoringMessage()),
-                  dismissButton: .default(Text("Awesome!")))
+                  dismissButton: .default(Text("Awesome!")) {
+                     self.score = self.score + self.pointsForCurrentRound()
+                     self.target = Int.random(in: 1...100)
+                     self.round = self.round + 1
+               })
          }
          
          Spacer()
@@ -67,10 +72,10 @@ struct ContentView: View {
             }
             Spacer()
             Text("Score:")
-            Text("999999")
+            Text("\(self.score)")
             Spacer()
             Text("Round:")
-            Text("999")
+            Text("/(self.round)")
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                Text("Info")
