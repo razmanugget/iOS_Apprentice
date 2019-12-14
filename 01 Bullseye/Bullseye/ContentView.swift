@@ -88,7 +88,16 @@ struct ContentView: View {
    func pointsForCurrentRound() -> Int {
       let maximumScore = 100
       let difference = abs(self.sliderValueRounded - self.target)
-      return maximumScore - difference
+      let bonus: Int
+      
+      if difference == 0 {
+         bonus = 100
+      } else if difference == 1 {
+         bonus = 50
+      } else {
+         bonus = 0
+      }
+      return maximumScore - difference + bonus
    }
    
    func scoringMessage() -> String {
