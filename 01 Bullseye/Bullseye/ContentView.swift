@@ -10,9 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
    // Properties
-   var sliderTargetDifference: Int {
-      abs(self.sliderValueRounded - self.target)
-   }
+  
    
    // User interface views
    @State var alertIsVisible = false
@@ -23,8 +21,11 @@ struct ContentView: View {
    
    // computed
    var sliderValueRounded: Int {
-      Int(self.sliderValue.rounded())
+      Int(sliderValue.rounded())
    }
+   var sliderTargetDifference: Int {
+        abs(sliderValueRounded - self.target)
+     }
    
    // User interface content and layout
    var body: some View {
@@ -34,7 +35,7 @@ struct ContentView: View {
          // Target row
          HStack {
             Text("Put the bullseye as close as you can to:")
-            Text("\(self.target)")
+            Text("\(target)")
          }
          
          Spacer()
@@ -42,7 +43,7 @@ struct ContentView: View {
          // Slider row
          HStack {
             Text("1")
-            Slider(value: self.$sliderValue, in: 1...100)
+            Slider(value: $sliderValue, in: 1...100)
             Text("100")
          }
          
@@ -54,7 +55,7 @@ struct ContentView: View {
          }) {
             Text("Hit me!")
          }
-         .alert(isPresented: self.$alertIsVisible) {
+         .alert(isPresented: $alertIsVisible) {
             Alert(title: Text(alertTitle()),
                   message: Text(scoringMessage()),
                   dismissButton: .default(Text("Awesome!")) {
@@ -73,10 +74,10 @@ struct ContentView: View {
             }
             Spacer()
             Text("Score:")
-            Text("\(self.score)")
+            Text("\(score)")
             Spacer()
             Text("Round:")
-            Text("\(self.round)")
+            Text("\(round)")
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                Text("Info")
@@ -104,16 +105,16 @@ struct ContentView: View {
    func scoringMessage() -> String {
       return "The slider's value is \(sliderValueRounded).\n" +
       "The target value is \(target).\n" +
-      "You scored \(self.pointsForCurrentRound()) points this round."
+      "You scored \(pointsForCurrentRound()) points this round."
    }
    
    func alertTitle() -> String {
       let title: String
-      if self.sliderTargetDifference == 0 {
+      if sliderTargetDifference == 0 {
          title = "Perfect!"
-      } else if self.sliderTargetDifference < 5 {
+      } else if sliderTargetDifference < 5 {
          title = "You almost had it!"
-      } else if self.sliderTargetDifference <= 10 {
+      } else if sliderTargetDifference <= 10 {
          title = "Not bad."
       } else {
          title = "Are you even trying?"
@@ -122,20 +123,20 @@ struct ContentView: View {
    }
    
    func startNewGame() {
-      self.score = 0
-      self.round = 1
+      score = 0
+      round = 1
       resetSliderAndTarget()
    }
    
    func startNewRound() {
-      self.score = self.score + self.pointsForCurrentRound()
-      self.round = self.round + 1
+      score = score + pointsForCurrentRound()
+      round = round + 1
       resetSliderAndTarget()
    }
    
    func resetSliderAndTarget() {
-      self.sliderValue = 50.0
-      self.target = Int.random(in: 1...100)
+      sliderValue = 50.0
+      target = Int.random(in: 1...100)
    }
 }
 
