@@ -35,7 +35,13 @@ struct ContentView: View {
          // Target row
          HStack {
             Text("Put the bullseye as close as you can to:")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.white)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Text("\(target)")
+               .font(Font.custom("Arial Rounded MT Bold", size: 24))
+               .foregroundColor(Color.yellow)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
          }
          
          Spacer()
@@ -43,8 +49,14 @@ struct ContentView: View {
          // Slider row
          HStack {
             Text("1")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.white)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Slider(value: $sliderValue, in: 1...100)
             Text("100")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.white)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
          }
          
          Spacer()
@@ -74,10 +86,22 @@ struct ContentView: View {
             }
             Spacer()
             Text("Score:")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.white)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Text("\(score)")
+               .font(Font.custom("Arial Rounded MT Bold", size: 24))
+               .foregroundColor(Color.yellow)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Spacer()
             Text("Round:")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.white)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Text("\(round)")
+               .font(Font.custom("Arial Rounded MT Bold", size: 24))
+               .foregroundColor(Color.yellow)
+               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                Text("Info")
@@ -85,6 +109,10 @@ struct ContentView: View {
          }
          .padding(.bottom, 20)
       }
+      .onAppear() {
+         self.startNewGame()
+      }
+   .background(Image("Background"))
    }
    
    // Methods
