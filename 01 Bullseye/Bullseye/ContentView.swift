@@ -11,9 +11,7 @@ import SwiftUI
 struct ContentView: View {
    // MARK: - Properties
    // Colors
-   let midnightBlue = Color(red: 0,
-                            green: 0.2,
-                            blue: 0.4)
+   let midnightBlue = Color(red: 0, green: 0.2, blue: 0.4)
    
    // User interface views
    @State var alertIsVisible = false
@@ -34,7 +32,7 @@ struct ContentView: View {
    var body: some View {
       NavigationView {
          VStack {
-            Spacer()
+            Spacer().navigationBarTitle("🎯 Bullseye 🎯")
             // Target row
             HStack {
                Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
