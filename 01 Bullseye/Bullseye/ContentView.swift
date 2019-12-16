@@ -10,7 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
    // MARK: - Properties
-  
+   // Colors
+   let midnightBlue = Color(red: 0,
+                            green: 0.2,
+                            blue: 0.4)
    
    // User interface views
    @State var alertIsVisible = false
@@ -43,7 +46,7 @@ struct ContentView: View {
          // Slider row
          HStack {
             Text("1").modifier(LabelStyle())
-            Slider(value: $sliderValue, in: 1...100)
+            Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
             Text("100").modifier(ValueStyle())
          }
          
@@ -74,6 +77,7 @@ struct ContentView: View {
             Button(action: {
                self.startNewGame()
             }) {
+               Image("StartOverIcon")
                Text("Start over").modifier(ButtonSmallTextStyle())
             }
             .background(Image("Button")
@@ -87,17 +91,19 @@ struct ContentView: View {
             Text("\(round)").modifier(ValueStyle())
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+               Image("InfoIcon")
                Text("Info").modifier(ButtonSmallTextStyle())
             }
             .background(Image("Button"))
             .modifier(Shadow())
          }
          .padding(.bottom, 20)
+         .accentColor(midnightBlue)
       }
       .onAppear() {
          self.startNewGame()
       }
-   .background(Image("Background"))
+      .background(Image("Background"))
    }
    
    // MARK: Methods
