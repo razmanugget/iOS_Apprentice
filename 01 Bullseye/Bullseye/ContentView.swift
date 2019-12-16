@@ -43,8 +43,7 @@ struct ContentView: View {
          // Slider row
          HStack {
             Text("1").modifier(LabelStyle())
-//            Slider(value: self.$sliderValue, from: 1.0, through: 100.0)
-                        Slider(value: $sliderValue, in: 1...100)
+            Slider(value: $sliderValue, in: 1...100)
             Text("100").modifier(ValueStyle())
          }
          
@@ -54,11 +53,10 @@ struct ContentView: View {
          Button(action: {
             self.alertIsVisible = true
          }) {
-            Text("Hit me!")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.black)
+            Text("Hit me!").modifier(ButtonLargeTextStyle())
          }
-         .background(Image("Button").modifier(Shadow())
+         .background(Image("Button")
+         .modifier(Shadow())
          )
             .alert(isPresented: $alertIsVisible) {
                Alert(title: Text(alertTitle()),
@@ -76,8 +74,11 @@ struct ContentView: View {
             Button(action: {
                self.startNewGame()
             }) {
-               Text("Start over")
+               Text("Start over").modifier(ButtonSmallTextStyle())
             }
+            .background(Image("Button")
+            .modifier(Shadow())
+            )
             Spacer()
             Text("Score:").modifier(LabelStyle())
             Text("\(score)").modifier(ValueStyle())
@@ -86,8 +87,10 @@ struct ContentView: View {
             Text("\(round)").modifier(ValueStyle())
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-               Text("Info")
+               Text("Info").modifier(ButtonSmallTextStyle())
             }
+            .background(Image("Button"))
+            .modifier(Shadow())
          }
          .padding(.bottom, 20)
       }
@@ -149,13 +152,14 @@ struct ContentView: View {
       target = Int.random(in: 1...100)
    }
 }
+
 // MARK: - View Modifiers
 struct LabelStyle: ViewModifier {
    func body(content: Content) -> some View {
       content
          .font(Font.custom("Arial Rounded MT Bold", size: 18))
          .foregroundColor(Color.white)
-         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+         .modifier(Shadow())
    }
 }
 struct ValueStyle: ViewModifier {
@@ -163,7 +167,7 @@ struct ValueStyle: ViewModifier {
       content
          .font(Font.custom("Arial Rounded MT Bold", size: 24))
          .foregroundColor(Color.yellow)
-         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+         .modifier(Shadow())
    }
 }
 struct Shadow: ViewModifier {
@@ -172,8 +176,20 @@ struct Shadow: ViewModifier {
          .shadow(color: Color.black, radius: 5, x: 2, y: 2)
    }
 }
-
-
+struct ButtonLargeTextStyle: ViewModifier {
+   func body(content: Content) -> some View {
+      content
+         .font(Font.custom("Arial Rounded MT Bold", size: 18))
+         .foregroundColor(Color.black)
+   }
+}
+struct ButtonSmallTextStyle: ViewModifier {
+   func body(content: Content) -> some View {
+      content
+         .font(Font.custom("Arial Rounded MT Bold", size: 12))
+         .foregroundColor(Color.black)
+   }
+}
 
 // MARK: - Preview
 #if DEBUG
