@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-   // Properties
+   // MARK: Properties
   
    
    // User interface views
@@ -27,7 +27,7 @@ struct ContentView: View {
         abs(sliderValueRounded - self.target)
      }
    
-   // User interface content and layout
+   // MARK: User interface content and layout
    var body: some View {
       
       VStack {
@@ -66,13 +66,19 @@ struct ContentView: View {
             self.alertIsVisible = true
          }) {
             Text("Hit me!")
+               .font(Font.custom("Arial Rounded MT Bold", size: 18))
+               .foregroundColor(Color.black)
          }
-         .alert(isPresented: $alertIsVisible) {
-            Alert(title: Text(alertTitle()),
-                  message: Text(scoringMessage()),
-                  dismissButton: .default(Text("Awesome!")) {
-                     self.startNewRound()
-               })
+         .background(Image("Button")
+         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+         )
+            .alert(isPresented: $alertIsVisible) {
+               Alert(title: Text(alertTitle()),
+                     message: Text(scoringMessage()),
+                     dismissButton: .default(Text("Awesome!")) {
+                        self.startNewRound()
+                  }
+               )
          }
          
          Spacer()
@@ -115,7 +121,7 @@ struct ContentView: View {
    .background(Image("Background"))
    }
    
-   // Methods
+   // MARK: Methods
    func pointsForCurrentRound() -> Int {
       let maximumScore = 100
       let points: Int
@@ -167,10 +173,10 @@ struct ContentView: View {
       target = Int.random(in: 1...100)
    }
 }
+// MARK: - View Modifiers
 
 
-// Preview
-// =======
+// MARK: - Preview
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
