@@ -32,81 +32,86 @@ struct ContentView: View {
    
    // MARK: User interface content and layout
    var body: some View {
-      
-      VStack {
-         Spacer()
-         // Target row
-         HStack {
-            Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
-            Text("\(target)").modifier(ValueStyle())
-         }
-         
-         Spacer()
-         
-         // Slider row
-         HStack {
-            Text("1").modifier(LabelStyle())
-            Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
-            Text("100").modifier(ValueStyle())
-         }
-         
-         Spacer()
-         
-         // Button row
-         Button(action: {
-            self.alertIsVisible = true
-         }) {
-            Text("Hit me!").modifier(ButtonLargeTextStyle())
-         }
-         .background(Image("Button")
-         .modifier(Shadow())
-         )
-            .alert(isPresented: $alertIsVisible) {
-               Alert(title: Text(alertTitle()),
-                     message: Text(scoringMessage()),
-                     dismissButton: .default(Text("Awesome!")) {
-                        self.startNewRound()
-                  }
-               )
-         }
-         
-         Spacer()
-         
-         // Score row
-         HStack {
+      NavigationView {
+         VStack {
+            Spacer()
+            // Target row
+            HStack {
+               Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
+               Text("\(target)").modifier(ValueStyle())
+            }
+            
+            Spacer()
+            
+            // Slider row
+            HStack {
+               Text("1").modifier(LabelStyle())
+               Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
+               Text("100").modifier(ValueStyle())
+            }
+            
+            Spacer()
+            
+            // Button row
             Button(action: {
-               self.startNewGame()
+               self.alertIsVisible = true
             }) {
-               Image("StartOverIcon")
-               Text("Start over").modifier(ButtonSmallTextStyle())
+               Text("Hit me!").modifier(ButtonLargeTextStyle())
             }
             .background(Image("Button")
             .modifier(Shadow())
             )
-            Spacer()
-            Text("Score:").modifier(LabelStyle())
-            Text("\(score)").modifier(ValueStyle())
-            Spacer()
-            Text("Round:").modifier(LabelStyle())
-            Text("\(round)").modifier(ValueStyle())
-            Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-               Image("InfoIcon")
-               Text("Info").modifier(ButtonSmallTextStyle())
+               .alert(isPresented: $alertIsVisible) {
+                  Alert(title: Text(alertTitle()),
+                        message: Text(scoringMessage()),
+                        dismissButton: .default(Text("Awesome!")) {
+                           self.startNewRound()
+                     }
+                  )
             }
-            .background(Image("Button"))
-            .modifier(Shadow())
+            
+            Spacer()
+            
+            // Score row
+            HStack {
+               Button(action: {
+                  self.startNewGame()
+               }) {
+                  Image("StartOverIcon")
+                  Text("Start over").modifier(ButtonSmallTextStyle())
+               }
+               .background(Image("Button")
+               .modifier(Shadow())
+               )
+               Spacer()
+               Text("Score:").modifier(LabelStyle())
+               Text("\(score)").modifier(ValueStyle())
+               Spacer()
+               Text("Round:").modifier(LabelStyle())
+               Text("\(round)").modifier(ValueStyle())
+               Spacer()
+               NavigationLink(destination: AboutView()) {
+                  HStack {
+                     Image("InfoIcon")
+                     Text("Info").modifier(ButtonSmallTextStyle())
+                  }
+               }
+               .background(Image("Button")
+               .modifier(Shadow())
+               )
+            }
+            .padding(.bottom, 20)
+            .accentColor(midnightBlue)
          }
-         .padding(.bottom, 20)
-         .accentColor(midnightBlue)
-      }
       .onAppear() {
          self.startNewGame()
       }
       .background(Image("Background"))
    }
+   .navigationViewStyle(StackNavigationViewStyle())
+   }
    
-   // MARK: Methods
+   // MARK: - Methods
    func pointsForCurrentRound() -> Int {
       let maximumScore = 100
       let points: Int
