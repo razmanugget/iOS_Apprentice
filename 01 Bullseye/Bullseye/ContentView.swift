@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-   // MARK: Properties
+   // MARK: - Properties
   
    
    // User interface views
@@ -34,29 +34,18 @@ struct ContentView: View {
          Spacer()
          // Target row
          HStack {
-            Text("Put the bullseye as close as you can to:")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.white)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            Text("\(target)")
-               .font(Font.custom("Arial Rounded MT Bold", size: 24))
-               .foregroundColor(Color.yellow)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+            Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
+            Text("\(target)").modifier(ValueStyle())
          }
          
          Spacer()
          
          // Slider row
          HStack {
-            Text("1")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.white)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            Slider(value: $sliderValue, in: 1...100)
-            Text("100")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.white)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+            Text("1").modifier(LabelStyle())
+//            Slider(value: self.$sliderValue, from: 1.0, through: 100.0)
+                        Slider(value: $sliderValue, in: 1...100)
+            Text("100").modifier(ValueStyle())
          }
          
          Spacer()
@@ -69,8 +58,7 @@ struct ContentView: View {
                .font(Font.custom("Arial Rounded MT Bold", size: 18))
                .foregroundColor(Color.black)
          }
-         .background(Image("Button")
-         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+         .background(Image("Button").modifier(Shadow())
          )
             .alert(isPresented: $alertIsVisible) {
                Alert(title: Text(alertTitle()),
@@ -91,23 +79,11 @@ struct ContentView: View {
                Text("Start over")
             }
             Spacer()
-            Text("Score:")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.white)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            Text("\(score)")
-               .font(Font.custom("Arial Rounded MT Bold", size: 24))
-               .foregroundColor(Color.yellow)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+            Text("Score:").modifier(LabelStyle())
+            Text("\(score)").modifier(ValueStyle())
             Spacer()
-            Text("Round:")
-               .font(Font.custom("Arial Rounded MT Bold", size: 18))
-               .foregroundColor(Color.white)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            Text("\(round)")
-               .font(Font.custom("Arial Rounded MT Bold", size: 24))
-               .foregroundColor(Color.yellow)
-               .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+            Text("Round:").modifier(LabelStyle())
+            Text("\(round)").modifier(ValueStyle())
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                Text("Info")
@@ -174,10 +150,32 @@ struct ContentView: View {
    }
 }
 // MARK: - View Modifiers
+struct LabelStyle: ViewModifier {
+   func body(content: Content) -> some View {
+      content
+         .font(Font.custom("Arial Rounded MT Bold", size: 18))
+         .foregroundColor(Color.white)
+         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+   }
+}
+struct ValueStyle: ViewModifier {
+   func body(content: Content) -> some View {
+      content
+         .font(Font.custom("Arial Rounded MT Bold", size: 24))
+         .foregroundColor(Color.yellow)
+         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+   }
+}
+struct Shadow: ViewModifier {
+   func body(content: Content) -> some View {
+      content
+         .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+   }
+}
+
 
 
 // MARK: - Preview
-
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
    static var previews: some View {
