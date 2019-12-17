@@ -44,7 +44,9 @@ struct ContentView: View {
             // Slider row
             HStack {
                Text("1").modifier(LabelStyle())
-               Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
+               Slider(value: $sliderValue, in: 1...100)
+                  .accentColor(Color.green)
+                  .animation(.easeOut)
                Text("100").modifier(ValueStyle())
             }
             
