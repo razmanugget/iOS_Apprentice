@@ -23,11 +23,8 @@ struct ContentView: View {
             // ForEach - iterates thru the array
             ForEach(checklistItems, id: \.self) {
                item in Text(item)
-                  .onTapGesture {
-                     self.checklistItems.append(item)
-                     self.printChecklistContents()
-               }
             }
+            .onDelete(perform: deleteListItem)
          }
          .navigationBarTitle("Checklist")
          .onAppear() {
@@ -40,6 +37,10 @@ struct ContentView: View {
       for item in checklistItems {
          print(item)
       }
+   }
+   func deleteListItem(whichElement: IndexSet) {
+      checklistItems.remove(atOffsets: whichElement)
+      printChecklistContents()
    }
 }
 
