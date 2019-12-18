@@ -7,22 +7,36 @@
 //
 
 import SwiftUI
+struct ChecklistItem: Identifiable {
+   let id = UUID()         // unique id to catch dups
+   var name: String
+   var isChecked: Bool = false
+}
 
 struct ContentView: View {
    @State var checklistItems = [
-      "Walk the dog",
-      "Brush my teeth",
-      "Learn iOS development",
-      "Soccer practice",
-      "Eat ice cream",
+      ChecklistItem(name: "Walk the dog"),
+      ChecklistItem(name: "Brush my teeth"),
+      ChecklistItem(name: "Learn iOS development", isChecked: true),
+      ChecklistItem(name: "Soccer practice"),
+      ChecklistItem(name: "Eat ice cream", isChecked: true),
+      ChecklistItem(name: "Walk the dog", isChecked: true),
    ]
    
    var body: some View {
       NavigationView {
          List {
             // ForEach - iterates thru the array
-            ForEach(checklistItems, id: \.self) {
-               item in Text(item)
+            ForEach(checklistItems) { checklistItem in
+               HStack {
+                  Text(checklistItem.name)
+                  Spacer()
+                  if checklistItem.isChecked {
+                     Text("✅")
+                  } else {
+                     Text("◻️")
+                  }
+               }
             }
             .onDelete(perform: deleteListItem)
             .onMove(perform: moveListItem)
