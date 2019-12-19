@@ -34,11 +34,12 @@ struct ContentView: View {
                   Text(checklistItem.isChecked ? "✅" : "◻️")
                }
                .onTapGesture {
-                  print("checklistitem name: \(checklistItem.name)")
+                  self.checklistItems[0].isChecked.toggle()
                }
             }
             .onDelete(perform: deleteListItem)
             .onMove(perform: moveListItem)
+            
          }
          .navigationBarItems(trailing: EditButton())
          .navigationBarTitle("Checklist")
@@ -61,6 +62,9 @@ struct ContentView: View {
    func moveListItem(whichElement: IndexSet, destination: Int) {
       checklistItems.move(fromOffsets: whichElement, toOffset: destination)
       printChecklistContents()
+   }
+   func checkChange(whichElement: IndexSet) {
+      //      checklistItems.isChecked
    }
 }
 
