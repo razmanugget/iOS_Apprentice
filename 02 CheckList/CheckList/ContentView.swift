@@ -33,8 +33,13 @@ struct ContentView: View {
                   Spacer()
                   Text(checklistItem.isChecked ? "✅" : "◻️")
                }
-               .onTapGesture {
-                  self.checklistItems[0].isChecked.toggle()
+                  .background(Color.white) // makes entire row clickable
+                  .onTapGesture {
+                     if let matchingIndex = self.checklistItems.firstIndex(where:
+                        { $0.id == checklistItem.id }) {
+                        self.checklistItems[matchingIndex].isChecked.toggle()
+                     }
+                     self.printChecklistContents()
                }
             }
             .onDelete(perform: deleteListItem)
