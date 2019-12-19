@@ -31,11 +31,10 @@ struct ContentView: View {
                HStack {
                   Text(checklistItem.name)
                   Spacer()
-                  if checklistItem.isChecked {
-                     Text("✅")
-                  } else {
-                     Text("◻️")
-                  }
+                  Text(checklistItem.isChecked ? "✅" : "◻️")
+               }
+               .onTapGesture {
+                  print("checklistitem name: \(checklistItem.name)")
                }
             }
             .onDelete(perform: deleteListItem)
