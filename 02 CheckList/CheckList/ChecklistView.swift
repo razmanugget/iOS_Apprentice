@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ChecklistView.swift
 //  CheckList
 //
 //  Created by Rami on 12/17/19.
@@ -13,7 +13,7 @@ struct ChecklistItem: Identifiable {
    var isChecked: Bool = false
 }
 
-struct ContentView: View {
+struct ChecklistView: View {
    @State var checklistItems = [
       ChecklistItem(name: "Walk the dog"),
       ChecklistItem(name: "Brush my teeth"),
@@ -44,7 +44,6 @@ struct ContentView: View {
             }
             .onDelete(perform: deleteListItem)
             .onMove(perform: moveListItem)
-            
          }
          .navigationBarItems(trailing: EditButton())
          .navigationBarTitle("Checklist")
@@ -75,6 +74,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
    static var previews: some View {
-      ContentView()
+      ChecklistView()
    }
 }
