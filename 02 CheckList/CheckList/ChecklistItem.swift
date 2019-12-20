@@ -9,7 +9,7 @@
 import Foundation
 
 struct ChecklistItem: Identifiable {
-   let id = UUID()         // unique id to catch dups
+   let id = UUID()               // unique id to catch dups
    var name: String
    var isChecked: Bool = false
 }
