@@ -7,11 +7,7 @@
 //
 
 import SwiftUI
-struct ChecklistItem: Identifiable {
-   let id = UUID()         // unique id to catch dups
-   var name: String
-   var isChecked: Bool = false
-}
+
 
 struct ChecklistView: View {
    @State var checklistItems = [

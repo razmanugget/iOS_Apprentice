@@ -13,6 +13,7 @@
 		F410C2F923A8DA42005849AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F410C2F823A8DA42005849AD /* Assets.xcassets */; };
 		F410C2FC23A8DA42005849AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F410C2FB23A8DA42005849AD /* Preview Assets.xcassets */; };
 		F410C2FF23A8DA42005849AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F410C2FD23A8DA42005849AD /* LaunchScreen.storyboard */; };
+		F416E6B723ACC9500084A819 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416E6B623ACC9500084A819 /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F410C2FB23A8DA42005849AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F410C2FE23A8DA42005849AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F410C30023A8DA42005849AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F416E6B623ACC9500084A819 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				F410C2F223A8DA3E005849AD /* AppDelegate.swift */,
 				F410C2F423A8DA3E005849AD /* SceneDelegate.swift */,
-				F410C2F623A8DA3E005849AD /* ChecklistView.swift */,
 				F410C2F823A8DA42005849AD /* Assets.xcassets */,
 				F410C2FD23A8DA42005849AD /* LaunchScreen.storyboard */,
 				F410C30023A8DA42005849AD /* Info.plist */,
 				F410C2FA23A8DA42005849AD /* Preview Content */,
+				F410C2F623A8DA3E005849AD /* ChecklistView.swift */,
+				F416E6B623ACC9500084A819 /* ChecklistItem.swift */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				F410C2F323A8DA3E005849AD /* AppDelegate.swift in Sources */,
 				F410C2F523A8DA3E005849AD /* SceneDelegate.swift in Sources */,
 				F410C2F723A8DA3E005849AD /* ChecklistView.swift in Sources */,
+				F416E6B723ACC9500084A819 /* ChecklistItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
