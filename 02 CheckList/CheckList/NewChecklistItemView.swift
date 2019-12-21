@@ -11,6 +11,8 @@ import SwiftUI
 struct NewChecklistItemView: View {
    var checklist: Checklist
    @State var newItemName = ""
+   // used to access user settings for presentationMode
+   @Environment(\.presentationMode) var presentationMode
    
    var body: some View {
       VStack {
@@ -19,6 +21,9 @@ struct NewChecklistItemView: View {
             TextField("Enter new item name here", text: $newItemName)
             Button(action: {
                var newChecklistItem = ChecklistItem(name: self.newItemName)
+               self.checklist.items.append(newChecklistItem)
+               self.checklist.printChecklistContents()
+               self.presentationMode.wrappedValue.dismiss()
             }) {
                HStack {
                   Image(systemName: "plus.circle.fill")
