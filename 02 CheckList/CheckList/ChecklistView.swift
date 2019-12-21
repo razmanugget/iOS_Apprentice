@@ -51,7 +51,7 @@ struct ChecklistView: View {
          }
       }
       .sheet(isPresented: $newChecklistItemViewIsVisible) {
-         NewChecklistItemView()
+         NewChecklistItemView(checklist: self.checklist)
       }
    }
 }
