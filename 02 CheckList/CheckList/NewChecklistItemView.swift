@@ -30,6 +30,7 @@ struct NewChecklistItemView: View {
                   Text("Add new item")
                }
             }
+            .disabled(newItemName.count == 0)
          }
          Text("Swipe down to cancel.")
       }
