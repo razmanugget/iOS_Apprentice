@@ -25,8 +25,8 @@ struct ContentView: View {
       Int(sliderValue.rounded())
    }
    var sliderTargetDifference: Int {
-        abs(sliderValueRounded - self.target)
-     }
+      abs(sliderValueRounded - self.target)
+   }
    
    // MARK: User interface content and layout
    var body: some View {
@@ -103,12 +103,12 @@ struct ContentView: View {
             .padding(.bottom, 20)
             .accentColor(midnightBlue)
          }
-      .onAppear() {
-         self.startNewGame()
+         .onAppear() {
+            self.startNewGame()
+         }
+         .background(Image("Background"))
       }
-      .background(Image("Background"))
-   }
-   .navigationViewStyle(StackNavigationViewStyle())
+      .navigationViewStyle(StackNavigationViewStyle())
    }
    
    // MARK: - Methods
@@ -128,7 +128,7 @@ struct ContentView: View {
    
    func scoringMessage() -> String {
       return "The slider's value is \(sliderValueRounded).\n" +
-      "The target value is \(target).\n" +
+         "The target value is \(target).\n" +
       "You scored \(pointsForCurrentRound()) points this round."
    }
    
