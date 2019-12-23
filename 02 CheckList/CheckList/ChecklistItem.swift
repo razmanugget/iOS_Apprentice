@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ChecklistItem: Identifiable {
+struct ChecklistItem: Identifiable, Codable {
    let id = UUID()               // unique id to catch dups
    var name: String
    var isChecked: Bool = false
