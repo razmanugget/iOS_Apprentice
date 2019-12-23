@@ -22,6 +22,7 @@ class Checklist: ObservableObject {
    init() {
       print("Documents directory is: \(documentsDirectory())")
       print("Data file path is: \(dataFilePath())")
+      loadListItems()
    }
    func printChecklistContents() {
       for item in items {
@@ -31,10 +32,12 @@ class Checklist: ObservableObject {
    func deleteListItem(whichElement: IndexSet) {
       items.remove(atOffsets: whichElement)
       printChecklistContents()
+      saveListItems()
    }
    func moveListItem(whichElement: IndexSet, destination: Int) {
       items.move(fromOffsets: whichElement, toOffset: destination)
       printChecklistContents()
+      saveListItems()
    }
    func documentsDirectory() -> URL {
       let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -58,6 +61,22 @@ class Checklist: ObservableObject {
       } catch {
          // 6
          print("Error encoding item array: \(error.localizedDescription)")
+      }
+   }
+   func loadListItems() {
+      // 1
+      let path = dataFilePath()
+      // 2
+      if let data = try? Data(contentsOf: path) {
+         // 3 - creates decoder after Checklist.plist is found
+         let decoder = PropertyListDecoder()
+         do {
+            // 4
+            items = try decoder.decode([ChecklistItem].self, from: data)
+            // 5
+         } catch {
+            print("Error decoding item array: \(error.localizedDescription)")
+         }
       }
    }
    func checkChange(whichElement: IndexSet) {
