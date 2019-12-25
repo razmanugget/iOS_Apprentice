@@ -26,6 +26,9 @@ class ViewController: UIViewController {
    
    
    @IBAction func showAlert() {
+      let difference = abs(targetValue - currentValue)
+      let points = 100 - difference
+      score += points
       let alert = UIAlertController(title: "Awesome",
                                     message: scoringMessage(),
                                     preferredStyle: .alert)
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
    }
    @IBAction func sliderMoved(_ slider: UISlider) {
       currentValue = lroundf(slider.value)
-      print("The value of the slider is now: \(slider.value)")
+      print("The value of the slider is now: \(currentValue)")
    }
    @IBAction func startOver() {
       score = 0
@@ -47,22 +50,37 @@ class ViewController: UIViewController {
    
    func startNewRound() {
       targetValue = Int.random(in: 1...100)
-      targetLabel.text = String(targetValue)
+      updateLabels()
       currentValue = 80
       slider.value = Float(currentValue)
-      
    }
    func updateLabels() {
       targetLabel.text = String(targetValue)
+      scoreLabel.text = String(score)
    }
    func resetSliderAndTarget() {
       slider.value = 50
       targetValue = Int.random(in: 1...100)
       print(targetValue)
    }
+   func pointsForCurrentRound() -> Int {
+       let maximumScore = 100
+       let points: Int
+//      points = maximumScore - abs(targetValue - Int(slider.value))
+            points = maximumScore - abs(targetValue - currentValue)
+//       if sliderTargetDifference == 0 {
+//          points = 200
+//       } else if sliderTargetDifference == 1 {
+//          points = 150
+//       } else {
+//          points = maximumScore - sliderTargetDifference
+//       }
+       return points
+    }
    func scoringMessage() -> String {
-      return "The slider's value is \(slider.value).\n" +
-          "The target value is \(targetValue).\n"
+      return "The slider's value is \(currentValue).\n" +
+          "The target value is \(targetValue).\n" +
+            "You scored \(pointsForCurrentRound()) points this round."
     }
    
    override func viewDidLoad() {
