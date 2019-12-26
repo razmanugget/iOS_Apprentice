@@ -12,7 +12,7 @@ class ViewController: UIViewController {
    var currentValue: Int = 0
    var targetValue = 0
    var score = 0
-   var round = 1
+   var round = 0
    
    // computed
    var sliderTargetDifference: Int {
@@ -27,25 +27,23 @@ class ViewController: UIViewController {
    
    @IBAction func showAlert() {
       alertMessage()
-      startNewRound()
    }
    @IBAction func sliderMoved(_ slider: UISlider) {
       currentValue = lroundf(slider.value)
       print("The value of the slider is now: \(currentValue)")
    }
    @IBAction func startOver() {
-      resetSliderAndTarget()
       score = 0
       round = 0
-      updateLabels()
+      startNewRound()
    }
    
    // MARK: - Functions
    func startNewRound() {
       targetValue = Int.random(in: 1...100)
+      round += 1
       updateLabels()
       currentValue = 50
-      round += 1
       slider.value = Float(currentValue)
    }
    func updateLabels() {
@@ -87,10 +85,14 @@ class ViewController: UIViewController {
       } else {
          title = "Not so close"
       }
+      
       let alert = UIAlertController(title: title,
                                     message: scoringMessage(),
                                     preferredStyle: .alert)
-      let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+      // adding func to handler removes asynchronos computing that works ahead
+      let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
+         self.startNewRound()
+      })
       alert.addAction(action)
       present(alert, animated: true, completion: nil)
       return
