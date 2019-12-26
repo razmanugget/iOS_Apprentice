@@ -15,9 +15,9 @@ class ViewController: UIViewController {
    var round = 1
    
    // computed
-//   var sliderTargetDifference: Int {
-//      abs(sliderValueRounded - self.target)
-//   }
+   var sliderTargetDifference: Int {
+      abs(currentValue - targetValue)
+   }
    
    @IBOutlet weak var slider: UISlider!
    @IBOutlet weak var targetLabel: UILabel!
@@ -26,15 +26,7 @@ class ViewController: UIViewController {
    
    
    @IBAction func showAlert() {
-      let difference = abs(targetValue - currentValue)
-      let points = 100 - difference
-      score += points
-      let alert = UIAlertController(title: "Awesome",
-                                    message: scoringMessage(),
-                                    preferredStyle: .alert)
-      let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-      alert.addAction(action)
-      present(alert, animated: true, completion: nil)
+      alertMessage()
       startNewRound()
    }
    @IBAction func sliderMoved(_ slider: UISlider) {
@@ -42,21 +34,24 @@ class ViewController: UIViewController {
       print("The value of the slider is now: \(currentValue)")
    }
    @IBAction func startOver() {
+      resetSliderAndTarget()
       score = 0
       round = 0
-      resetSliderAndTarget()
+      updateLabels()
    }
    
-   
+   // MARK: - Functions
    func startNewRound() {
       targetValue = Int.random(in: 1...100)
       updateLabels()
-      currentValue = 80
+      currentValue = 50
+      round += 1
       slider.value = Float(currentValue)
    }
    func updateLabels() {
       targetLabel.text = String(targetValue)
       scoreLabel.text = String(score)
+      roundLabel.text = String(round)
    }
    func resetSliderAndTarget() {
       slider.value = 50
@@ -64,24 +59,42 @@ class ViewController: UIViewController {
       print(targetValue)
    }
    func pointsForCurrentRound() -> Int {
-       let maximumScore = 100
-       let points: Int
-//      points = maximumScore - abs(targetValue - Int(slider.value))
-            points = maximumScore - abs(targetValue - currentValue)
-//       if sliderTargetDifference == 0 {
-//          points = 200
-//       } else if sliderTargetDifference == 1 {
-//          points = 150
-//       } else {
-//          points = maximumScore - sliderTargetDifference
-//       }
-       return points
-    }
+      let maximumScore = 100
+      var points: Int
+      if sliderTargetDifference == 0 {
+         points = 200
+      } else if sliderTargetDifference == 1 {
+         points = 150
+      } else {
+         points = maximumScore - sliderTargetDifference
+      }
+      score += points
+      return points
+   }
    func scoringMessage() -> String {
       return "The slider's value is \(currentValue).\n" +
-          "The target value is \(targetValue).\n" +
-            "You scored \(pointsForCurrentRound()) points this round."
-    }
+         "The target value is \(targetValue).\n" +
+      "You scored \(pointsForCurrentRound()) points this round."
+   }
+   func alertMessage() {
+      let title: String
+      if sliderTargetDifference == 0 {
+         title = "Perfect!"
+      } else if sliderTargetDifference < 5 {
+         title = "You almost had it!"
+      } else if sliderTargetDifference < 10 {
+         title = "Not bad."
+      } else {
+         title = "Not so close"
+      }
+      let alert = UIAlertController(title: title,
+                                    message: scoringMessage(),
+                                    preferredStyle: .alert)
+      let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(action)
+      present(alert, animated: true, completion: nil)
+      return
+   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
