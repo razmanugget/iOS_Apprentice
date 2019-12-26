@@ -116,6 +116,5 @@ class ViewController: UIViewController {
       let trackRightImage = UIImage(named: "SliderTrackRight")!
       let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
       slider.setMinimumTrackImage(trackRightResizable, for: .normal)
-      
    }
 }
