@@ -223,12 +223,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="52d-CO-ZBi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoreItem" id="52d-CO-ZBi">
                                 <rect key="frame" x="0.0" y="28" width="667" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52d-CO-ZBi" id="1mW-e5-anx">
                                     <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-oh-Osb">
+                                            <rect key="frame" x="20" y="11" width="300" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="7Td-M0-sN1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-lP-0XR">
+                                            <rect key="frame" x="328" y="11" width="319" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2G1-lP-0XR" firstAttribute="bottom" secondItem="1mW-e5-anx" secondAttribute="bottomMargin" id="FfT-th-u9H"/>
+                                        <constraint firstItem="2G1-lP-0XR" firstAttribute="trailing" secondItem="1mW-e5-anx" secondAttribute="trailingMargin" id="JwA-vf-oIj"/>
+                                        <constraint firstItem="iIz-oh-Osb" firstAttribute="leading" secondItem="1mW-e5-anx" secondAttribute="leadingMargin" id="VUt-TO-Rly"/>
+                                        <constraint firstItem="iIz-oh-Osb" firstAttribute="top" secondItem="1mW-e5-anx" secondAttribute="topMargin" id="X86-yK-Yfc"/>
+                                        <constraint firstItem="iIz-oh-Osb" firstAttribute="firstBaseline" secondItem="2G1-lP-0XR" secondAttribute="firstBaseline" id="j0c-Vy-t12"/>
+                                        <constraint firstItem="iIz-oh-Osb" firstAttribute="centerY" secondItem="2G1-lP-0XR" secondAttribute="centerY" id="kKu-H7-t0B"/>
+                                        <constraint firstItem="2G1-lP-0XR" firstAttribute="leading" secondItem="iIz-oh-Osb" secondAttribute="trailing" constant="8" id="nb3-xu-dJD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -241,7 +267,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3Z-WA-RDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="1084"/>
+            <point key="canvasLocation" x="138.98050974512745" y="1084"/>
         </scene>
     </scenes>
     <resources>
