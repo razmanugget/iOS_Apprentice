@@ -18,6 +18,7 @@
 		F458F5B723B507D80003180E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F458F5B623B507D80003180E /* WebKit.framework */; };
 		F478510C23B7597F008948A1 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510B23B7597F008948A1 /* HighScoresViewController.swift */; };
 		F478510E23B8D10D008948A1 /* HighScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510D23B8D10D008948A1 /* HighScoreItem.swift */; };
+		F478511023B8F13C008948A1 /* PersistencyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510F23B8F13C008948A1 /* PersistencyHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F458F5B623B507D80003180E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F478510B23B7597F008948A1 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		F478510D23B8D10D008948A1 /* HighScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreItem.swift; sourceTree = "<group>"; };
+		F478510F23B8F13C008948A1 /* PersistencyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				F458F5B123B4F32A0003180E /* AboutViewController.swift */,
 				F478510B23B7597F008948A1 /* HighScoresViewController.swift */,
 				F458F5A323B0F24F0003180E /* Main.storyboard */,
+				F478510F23B8F13C008948A1 /* PersistencyHelper.swift */,
 				F478510D23B8D10D008948A1 /* HighScoreItem.swift */,
 				F458F5B323B507390003180E /* Bullseye.html */,
 				F458F5A623B0F2530003180E /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 			files = (
 				F478510C23B7597F008948A1 /* HighScoresViewController.swift in Sources */,
 				F478510E23B8D10D008948A1 /* HighScoreItem.swift in Sources */,
+				F478511023B8F13C008948A1 /* PersistencyHelper.swift in Sources */,
 				F458F5A223B0F24F0003180E /* ViewController.swift in Sources */,
 				F458F59E23B0F24F0003180E /* AppDelegate.swift in Sources */,
 				F458F5B223B4F32A0003180E /* AboutViewController.swift in Sources */,
