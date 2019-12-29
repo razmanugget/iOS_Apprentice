@@ -9,19 +9,14 @@
 import UIKit
 
 class HighScoresViewController: UITableViewController {
-   var row0item = HighScoreItem()
-   var row1item = HighScoreItem()
-   var row2item = HighScoreItem()
-   var row3item = HighScoreItem()
-   var row4item = HighScoreItem()
-   
+   var items = [HighScoreItem]()
    
    
    // MARK: - Table view data source
    override func tableView(_ tableView: UITableView,
                            numberOfRowsInSection section: Int)
       -> Int {
-         return 5
+         return items.count
    }
    override func tableView(_ tableView: UITableView,
                            cellForRowAt indexPath: IndexPath)
@@ -29,24 +24,13 @@ class HighScoresViewController: UITableViewController {
          let cell = tableView.dequeueReusableCell(
             withIdentifier: "HighScoreItem", for: indexPath)
          
+         let item = items[indexPath.row]
+         
          let nameLabel = cell.viewWithTag(1000) as! UILabel
          let scoreLabel = cell.viewWithTag(2000) as! UILabel
-         if indexPath.row == 0 {
-            nameLabel.text = row0item.name
-            scoreLabel.text = String(row0item.score)
-         } else if indexPath.row == 1 {
-            nameLabel.text = row1item.name
-            scoreLabel.text = String(row1item.score)
-         } else if indexPath.row == 2 {
-            nameLabel.text = row2item.name
-            scoreLabel.text = String(row2item.score)
-         } else if indexPath.row == 3 {
-            nameLabel.text = row3item.name
-            scoreLabel.text = String(row3item.score)
-         } else if indexPath.row == 4 {
-            nameLabel.text = row4item.name
-            scoreLabel.text = String(row4item.score)
-         }
+         
+         nameLabel.text = item.name
+         scoreLabel.text = String(item.score)
          return cell
    }
    override func tableView (_ tableView: UITableView,
@@ -57,15 +41,29 @@ class HighScoresViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      row0item.name = "The reader of this book"
-      row0item.score = 50000
-      row1item.name = "Manda"
-      row1item.score = 10000
-      row2item.name = "Joey"
-      row2item.score = 5000
-      row3item.name = "Adam"
-      row3item.score = 1000
-      row4item.name = "Eli"
-      row4item.score = 500
+      let item1 = HighScoreItem()
+      item1.name = "The reader of this book"
+      item1.score = 50000
+      items.append(item1)
+      
+      let item2 = HighScoreItem()
+      item2.name = "Manda"
+      item2.score = 10000
+      items.append(item2)
+      
+      let item3 = HighScoreItem()
+      item3.name = "Joey"
+      item3.score = 5000
+      items.append(item3)
+      
+      let item4 = HighScoreItem()
+      item4.name = "Adam"
+      item4.score = 1000
+      items.append(item4)
+      
+      let item5 = HighScoreItem()
+      item5.name = "Eli"
+      item5.score = 500
+      items.append(item5)
    }
 }
