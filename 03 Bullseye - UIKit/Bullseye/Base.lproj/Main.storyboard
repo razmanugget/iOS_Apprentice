@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oyn-ET-Y8w">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bullseye-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                                 <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-uA-mp3">
-                                <rect key="frame" x="144.5" y="40" width="378" height="24.5"/>
+                                <rect key="frame" x="144.5" y="72" width="378" height="24.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put the Bull's Eye as close as you can to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbF-VZ-OFL">
                                         <rect key="frame" x="0.0" y="0.0" width="332" height="24.5"/>
@@ -156,6 +156,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Bullseye" id="y1E-Ky-0DO"/>
                     <connections>
                         <outlet property="roundLabel" destination="qAV-6B-e8o" id="9oG-uG-z9h"/>
                         <outlet property="scoreLabel" destination="1zd-Hg-mjV" id="8gM-6j-pI5"/>
@@ -165,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.98050974512745" y="136.80000000000001"/>
+            <point key="canvasLocation" x="929.68515742128943" y="136.80000000000001"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="oke-wm-fWj">
@@ -212,9 +213,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySx-Qh-g9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816.34182908545733" y="136.80000000000001"/>
+            <point key="canvasLocation" x="1699" y="137"/>
         </scene>
-        <!--High Scores View Controller-->
+        <!--High Scores-->
         <scene sceneID="lba-8C-TET">
             <objects>
                 <tableViewController id="g50-tz-zP3" customClass="HighScoresViewController" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
@@ -224,10 +225,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoreItem" id="52d-CO-ZBi">
-                                <rect key="frame" x="0.0" y="28" width="667" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="667" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52d-CO-ZBi" id="1mW-e5-anx">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-oh-Osb">
@@ -240,7 +241,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-lP-0XR">
-                                            <rect key="frame" x="328" y="11" width="319" height="21.5"/>
+                                            <rect key="frame" x="328" y="11" width="319" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -263,11 +264,29 @@
                             <outlet property="delegate" destination="g50-tz-zP3" id="8SY-GO-67c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Xab-Vz-f55"/>
+                    <navigationItem key="navigationItem" title="High Scores" id="HAY-Kb-ol7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3Z-WA-RDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.98050974512745" y="1084"/>
+            <point key="canvasLocation" x="930" y="1098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0oJ-O7-mf8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oyn-ET-Y8w" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ice-oN-18f">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UnA-sg-v2W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krb-O3-eV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.98050974512745" y="136.80000000000001"/>
         </scene>
     </scenes>
     <resources>
