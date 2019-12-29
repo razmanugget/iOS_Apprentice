@@ -264,7 +264,13 @@
                             <outlet property="delegate" destination="g50-tz-zP3" id="8SY-GO-67c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="High Scores" id="HAY-Kb-ol7"/>
+                    <navigationItem key="navigationItem" title="High Scores" id="HAY-Kb-ol7">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="sAI-TO-zTU">
+                            <connections>
+                                <action selector="resetHighScores" destination="g50-tz-zP3" id="cyA-N7-QQW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3Z-WA-RDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
