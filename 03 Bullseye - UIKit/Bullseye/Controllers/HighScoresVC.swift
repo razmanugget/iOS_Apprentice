@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HighScoresViewController: UITableViewController {
+class HighScoresVC: UITableViewController {
    var items = [HighScoreItem]()
    
    // MARK: - Actions

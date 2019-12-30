@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="929.68515742128943" y="136.80000000000001"/>
         </scene>
-        <!--About View Controller-->
+        <!--AboutVC-->
         <scene sceneID="oke-wm-fWj">
             <objects>
-                <viewController id="Oyw-ZB-Qu3" customClass="AboutViewController" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Oyw-ZB-Qu3" customClass="AboutVC" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lxg-dH-Tnj">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,24 +215,56 @@
             </objects>
             <point key="canvasLocation" x="1699" y="137"/>
         </scene>
+        <!--Edit High Score-->
+        <scene sceneID="J85-UI-dhe">
+            <objects>
+                <tableViewController id="6M8-hd-zuJ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LZ1-Sb-AJg">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tK8-kA-owK">
+                                <rect key="frame" x="0.0" y="55.5" width="667" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tK8-kA-owK" id="qe1-Jy-Lz2">
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6M8-hd-zuJ" id="DWs-pi-Www"/>
+                            <outlet property="delegate" destination="6M8-hd-zuJ" id="Zzv-ty-jGp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit High Score" id="Y1b-Ag-idz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxT-EM-0hK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ITx-b3-bI3"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j82-CR-fGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1699" y="1097"/>
+        </scene>
         <!--High Scores-->
         <scene sceneID="lba-8C-TET">
             <objects>
-                <tableViewController id="g50-tz-zP3" customClass="HighScoresViewController" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="g50-tz-zP3" customClass="HighScoresVC" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DGj-ci-418">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoreItem" id="52d-CO-ZBi">
-                                <rect key="frame" x="0.0" y="28" width="667" height="43"/>
+                                <rect key="frame" x="0.0" y="28" width="667" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52d-CO-ZBi" id="1mW-e5-anx">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-oh-Osb">
-                                            <rect key="frame" x="20" y="11" width="300" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="300" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="300" id="7Td-M0-sN1"/>
                                             </constraints>
@@ -241,7 +273,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-lP-0XR">
-                                            <rect key="frame" x="328" y="11" width="319" height="21"/>
+                                            <rect key="frame" x="328" y="11" width="319" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -257,6 +289,9 @@
                                         <constraint firstItem="2G1-lP-0XR" firstAttribute="leading" secondItem="iIz-oh-Osb" secondAttribute="trailing" constant="8" id="nb3-xu-dJD"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6M8-hd-zuJ" kind="show" id="XEC-ph-smH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

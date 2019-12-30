@@ -109,11 +109,11 @@ class ViewController: UIViewController {
       guard score > 0 else {
          return;
       }
-      
+      // create the new highscore item
       let highscore = HighScoreItem()
       highscore.score = score
       highscore.name = "Unknown"
-      
+      // load the highscore file, add the new score, sort, save
       var highScores = PersistencyHelper.loadHighScores()
       highScores.append(highscore)
       highScores.sort { $0.score > $1.score }

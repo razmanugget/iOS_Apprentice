@@ -13,12 +13,13 @@
 		F458F5A523B0F24F0003180E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F458F5A323B0F24F0003180E /* Main.storyboard */; };
 		F458F5A723B0F2530003180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F458F5A623B0F2530003180E /* Assets.xcassets */; };
 		F458F5AA23B0F2530003180E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F458F5A823B0F2530003180E /* LaunchScreen.storyboard */; };
-		F458F5B223B4F32A0003180E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458F5B123B4F32A0003180E /* AboutViewController.swift */; };
+		F458F5B223B4F32A0003180E /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458F5B123B4F32A0003180E /* AboutVC.swift */; };
 		F458F5B423B5073A0003180E /* Bullseye.html in Resources */ = {isa = PBXBuildFile; fileRef = F458F5B323B507390003180E /* Bullseye.html */; };
 		F458F5B723B507D80003180E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F458F5B623B507D80003180E /* WebKit.framework */; };
-		F478510C23B7597F008948A1 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510B23B7597F008948A1 /* HighScoresViewController.swift */; };
+		F478510C23B7597F008948A1 /* HighScoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510B23B7597F008948A1 /* HighScoresVC.swift */; };
 		F478510E23B8D10D008948A1 /* HighScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510D23B8D10D008948A1 /* HighScoreItem.swift */; };
 		F478511023B8F13C008948A1 /* PersistencyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478510F23B8F13C008948A1 /* PersistencyHelper.swift */; };
+		F478511223BA1828008948A1 /* EditHighScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478511123BA1828008948A1 /* EditHighScoreVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +31,13 @@
 		F458F5A623B0F2530003180E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F458F5A923B0F2530003180E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F458F5AB23B0F2530003180E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F458F5B123B4F32A0003180E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F458F5B123B4F32A0003180E /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		F458F5B323B507390003180E /* Bullseye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Bullseye.html; sourceTree = "<group>"; };
 		F458F5B623B507D80003180E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		F478510B23B7597F008948A1 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		F478510B23B7597F008948A1 /* HighScoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresVC.swift; sourceTree = "<group>"; };
 		F478510D23B8D10D008948A1 /* HighScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreItem.swift; sourceTree = "<group>"; };
 		F478510F23B8F13C008948A1 /* PersistencyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyHelper.swift; sourceTree = "<group>"; };
+		F478511123BA1828008948A1 /* EditHighScoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHighScoreVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,18 +72,13 @@
 		F458F59C23B0F24F0003180E /* Bullseye */ = {
 			isa = PBXGroup;
 			children = (
-				F458F59D23B0F24F0003180E /* AppDelegate.swift */,
-				F458F59F23B0F24F0003180E /* SceneDelegate.swift */,
-				F458F5A123B0F24F0003180E /* ViewController.swift */,
-				F458F5B123B4F32A0003180E /* AboutViewController.swift */,
-				F478510B23B7597F008948A1 /* HighScoresViewController.swift */,
+				F478511423BA193A008948A1 /* SupportFiles */,
+				F478511323BA18B2008948A1 /* Controllers */,
 				F458F5A323B0F24F0003180E /* Main.storyboard */,
 				F478510F23B8F13C008948A1 /* PersistencyHelper.swift */,
 				F478510D23B8D10D008948A1 /* HighScoreItem.swift */,
 				F458F5B323B507390003180E /* Bullseye.html */,
-				F458F5A623B0F2530003180E /* Assets.xcassets */,
 				F458F5A823B0F2530003180E /* LaunchScreen.storyboard */,
-				F458F5AB23B0F2530003180E /* Info.plist */,
 			);
 			path = Bullseye;
 			sourceTree = "<group>";
@@ -92,6 +89,28 @@
 				F458F5B623B507D80003180E /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F478511323BA18B2008948A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F458F5B123B4F32A0003180E /* AboutVC.swift */,
+				F478511123BA1828008948A1 /* EditHighScoreVC.swift */,
+				F478510B23B7597F008948A1 /* HighScoresVC.swift */,
+				F458F5A123B0F24F0003180E /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F478511423BA193A008948A1 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F458F5A623B0F2530003180E /* Assets.xcassets */,
+				F458F59D23B0F24F0003180E /* AppDelegate.swift */,
+				F458F5AB23B0F2530003180E /* Info.plist */,
+				F458F59F23B0F24F0003180E /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,12 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F478510C23B7597F008948A1 /* HighScoresViewController.swift in Sources */,
+				F478510C23B7597F008948A1 /* HighScoresVC.swift in Sources */,
 				F478510E23B8D10D008948A1 /* HighScoreItem.swift in Sources */,
 				F478511023B8F13C008948A1 /* PersistencyHelper.swift in Sources */,
+				F478511223BA1828008948A1 /* EditHighScoreVC.swift in Sources */,
 				F458F5A223B0F24F0003180E /* ViewController.swift in Sources */,
 				F458F59E23B0F24F0003180E /* AppDelegate.swift in Sources */,
-				F458F5B223B4F32A0003180E /* AboutViewController.swift in Sources */,
+				F458F5B223B4F32A0003180E /* AboutVC.swift in Sources */,
 				F458F5A023B0F24F0003180E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3F6RMQTHU;
-				INFOPLIST_FILE = Bullseye/Info.plist;
+				INFOPLIST_FILE = Bullseye/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,7 +356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3F6RMQTHU;
-				INFOPLIST_FILE = Bullseye/Info.plist;
+				INFOPLIST_FILE = Bullseye/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
