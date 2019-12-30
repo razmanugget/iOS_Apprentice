@@ -25,6 +25,7 @@ class ViewController: UIViewController {
    @IBOutlet weak var roundLabel: UILabel!
    
    
+   // MARK: - IBActions
    @IBAction func showAlert() {
       alertMessage()
    }
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
       print("The value of the slider is now: \(currentValue)")
    }
    @IBAction func startOver() {
+      addHighScore(score)
       score = 0
       round = 0
       startNewRound()
@@ -46,16 +48,19 @@ class ViewController: UIViewController {
       currentValue = 50
       slider.value = Float(currentValue)
    }
+   
    func updateLabels() {
       targetLabel.text = String(targetValue)
       scoreLabel.text = String(score)
       roundLabel.text = String(round)
    }
+   
    func resetSliderAndTarget() {
       slider.value = 50
       targetValue = Int.random(in: 1...100)
       print(targetValue)
    }
+   
    func pointsForCurrentRound() -> Int {
       let maximumScore = 100
       var points: Int
@@ -69,11 +74,13 @@ class ViewController: UIViewController {
       score += points
       return points
    }
+   
    func scoringMessage() -> String {
       return "The slider's value is \(currentValue).\n" +
          "The target value is \(targetValue).\n" +
       "You scored \(pointsForCurrentRound()) points this round."
    }
+   
    func alertMessage() {
       let title: String
       if sliderTargetDifference == 0 {
@@ -98,6 +105,23 @@ class ViewController: UIViewController {
       return
    }
    
+   func addHighScore(_ score: Int) {
+      guard score > 0 else {
+         return;
+      }
+      
+      let highscore = HighScoreItem()
+      highscore.score = score
+      highscore.name = "Unknown"
+      
+      var highScores = PersistencyHelper.loadHighScores()
+      highScores.append(highscore)
+      highScores.sort { $0.score > $1.score }
+      PersistencyHelper.saveHighScores(highScores)
+   }
+   
+   
+   // MARK: - Overrides
    override func viewDidLoad() {
       super.viewDidLoad()
       startNewRound()
