@@ -218,7 +218,7 @@
         <!--Edit High Score-->
         <scene sceneID="J85-UI-dhe">
             <objects>
-                <tableViewController id="6M8-hd-zuJ" sceneMemberID="viewController">
+                <tableViewController id="6M8-hd-zuJ" customClass="EditHighScoreVC" customModule="Bullseye" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LZ1-Sb-AJg">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,8 +239,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit High Score" id="Y1b-Ag-idz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxT-EM-0hK"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ITx-b3-bI3"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxT-EM-0hK">
+                            <connections>
+                                <action selector="cancel" destination="6M8-hd-zuJ" id="PBW-a5-vGm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ITx-b3-bI3">
+                            <connections>
+                                <action selector="done" destination="6M8-hd-zuJ" id="Fv9-BX-DwR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j82-CR-fGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -121,7 +121,7 @@ class ViewController: UIViewController {
    }
    
    
-   // MARK: - Overrides
+   // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
       startNewRound()

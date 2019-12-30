@@ -74,11 +74,9 @@
 			children = (
 				F478511423BA193A008948A1 /* SupportFiles */,
 				F478511323BA18B2008948A1 /* Controllers */,
-				F458F5A323B0F24F0003180E /* Main.storyboard */,
-				F478510F23B8F13C008948A1 /* PersistencyHelper.swift */,
-				F478510D23B8D10D008948A1 /* HighScoreItem.swift */,
-				F458F5B323B507390003180E /* Bullseye.html */,
 				F458F5A823B0F2530003180E /* LaunchScreen.storyboard */,
+				F458F5A323B0F24F0003180E /* Main.storyboard */,
+				F478511523BA1ACB008948A1 /* Models */,
 			);
 			path = Bullseye;
 			sourceTree = "<group>";
@@ -111,6 +109,16 @@
 				F458F59F23B0F24F0003180E /* SceneDelegate.swift */,
 			);
 			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		F478511523BA1ACB008948A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F458F5B323B507390003180E /* Bullseye.html */,
+				F478510D23B8D10D008948A1 /* HighScoreItem.swift */,
+				F478510F23B8F13C008948A1 /* PersistencyHelper.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
