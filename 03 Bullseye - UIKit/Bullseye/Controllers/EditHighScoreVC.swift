@@ -10,12 +10,16 @@ import UIKit
 
 class EditHighScoreVC: UITableViewController {
    
+   
+   @IBOutlet weak var textField: UITextField!
+   
    // MARK: - IBActions
    @IBAction func cancel() {
       navigationController?.popViewController(animated: true)
    }
    
    @IBAction func done() {
+      print("Contents of the text field: \(textField.text!)")
       navigationController?.popViewController(animated: true)
    }
    
@@ -28,9 +32,8 @@ class EditHighScoreVC: UITableViewController {
          return nil
    }
    
-   
    override func viewDidLoad() {
       super.viewDidLoad()
-      
    }
+   
 }
