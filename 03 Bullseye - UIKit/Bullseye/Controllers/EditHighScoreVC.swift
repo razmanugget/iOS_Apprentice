@@ -8,6 +8,13 @@
 
 import UIKit
 
+// MARK: - Enums | Extensions | Protocols
+protocol EditHighScoreVCDelegate: class {
+   func editHighScoreVCDidCancel(_ controller: EditHighScoreVC)
+   func editHighScoreVC(_ controller: EditHighScoreVC,
+                        didFinishEditing item: HighScoreItem)
+}
+
 class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
    
    @IBOutlet weak var textField: UITextField!
@@ -34,11 +41,7 @@ class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
          let stringRange = Range(range, in: oldText)!
          let newText = oldText.replacingCharacters(in: stringRange,
                                                    with: string)
-         if newText.isEmpty {
-            doneBarButton.isEnabled = false
-         } else {
-            doneBarButton.isEnabled = true
-         }
+         doneBarButton.isEnabled = !newText.isEmpty
          return true
    }
    
