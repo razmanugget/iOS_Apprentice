@@ -17,6 +17,10 @@ protocol EditHighScoreVCDelegate: class {
 
 class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
    
+   // MARK: - Variables/Constants/Outlets
+   weak var delegate: EditHighScoreVCDelegate?
+   var highScoreItem: HighScoreItem!
+   
    @IBOutlet weak var textField: UITextField!
    @IBOutlet weak var doneBarButton: UIBarButtonItem!
    
