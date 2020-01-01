@@ -8,7 +8,17 @@
 
 import UIKit
 
-class HighScoresVC: UITableViewController {
+class HighScoresVC: UITableViewController,
+EditHighScoreVCDelegate {
+   func editHighScoreVCDidCancel(_ controller: EditHighScoreVC) {
+      navigationController?.popViewController(animated: true)
+   }
+   
+   func editHighScoreVC(_ controller: EditHighScoreVC,
+                        didFinishEditing item: HighScoreItem) {
+      navigationController?.popViewController(animated: true)
+   }
+   
    var items = [HighScoreItem]()
    
    // MARK: - Actions
@@ -81,6 +91,18 @@ class HighScoresVC: UITableViewController {
       PersistencyHelper.saveHighScores(items)
    }
    
+   
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      let controller = segue.destination as! EditHighScoreVCDelegate
+      controller.delegate = self
+      if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+         controller.highScoreItem = items[indexPath.row]
+      }
+   }
+   
+   
+   // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
       items = PersistencyHelper.loadHighScores()

@@ -27,6 +27,7 @@ class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
    
    // MARK: - IBActions
    @IBAction func cancel() {
+      // if delegate is nil, the message isn't sent
       delegate?.editHighScoreVCDidCancel(self)
    }
    
@@ -67,6 +68,7 @@ class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      textField.text = highScoreItem.name
    }
    
 }
