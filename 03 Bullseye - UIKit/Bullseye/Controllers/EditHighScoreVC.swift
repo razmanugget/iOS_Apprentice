@@ -27,12 +27,12 @@ class EditHighScoreVC: UITableViewController, UITextFieldDelegate {
    
    // MARK: - IBActions
    @IBAction func cancel() {
-      navigationController?.popViewController(animated: true)
+      delegate?.editHighScoreVCDidCancel(self)
    }
    
    @IBAction func done() {
-      print("Contents of the text field: \(textField.text!)")
-      navigationController?.popViewController(animated: true)
+      highScoreItem.name = textField.text!
+      delegate?.editHighScoreVC(self, didFinishEditing: highScoreItem)
    }
    
    
