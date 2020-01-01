@@ -10,14 +10,6 @@ import UIKit
 
 class HighScoresVC: UITableViewController,
 EditHighScoreVCDelegate {
-   func editHighScoreVCDidCancel(_ controller: EditHighScoreVC) {
-      navigationController?.popViewController(animated: true)
-   }
-   
-   func editHighScoreVC(_ controller: EditHighScoreVC,
-                        didFinishEditing item: HighScoreItem) {
-      navigationController?.popViewController(animated: true)
-   }
    
    var items = [HighScoreItem]()
    
@@ -53,6 +45,23 @@ EditHighScoreVCDelegate {
       
       PersistencyHelper.saveHighScores(items)
    }
+   
+
+   // MARK: - Functions
+   func editHighScoreVCDidCancel(_ controller: EditHighScoreVC) {
+      navigationController?.popViewController(animated: true)
+   }
+   
+   func editHighScoreVC(_ controller: EditHighScoreVC,
+                        didFinishEditing item: HighScoreItem) {
+      if let index = items.firstIndex(of: item) {
+         let indexPath = IndexPath(row: index, section: 0)
+         let indexPaths = [indexPath]
+         tableView.reloadRows(at: indexPaths, with: .automatic)
+      }
+      navigationController?.popViewController(animated: true)
+   }
+   
    
    // MARK: - Table view data source
    override func tableView(_ tableView: UITableView,
@@ -94,7 +103,7 @@ EditHighScoreVCDelegate {
    
    // MARK: - Navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      let controller = segue.destination as! EditHighScoreVCDelegate
+      let controller = segue.destination as! EditHighScoreVC
       controller.delegate = self
       if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
          controller.highScoreItem = items[indexPath.row]
