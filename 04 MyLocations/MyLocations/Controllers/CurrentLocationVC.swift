@@ -38,9 +38,8 @@ CLLocationManagerDelegate {
          showLocationServicesDeniedAlert()
          return
       }
-      locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-      locationManager.startUpdatingLocation()
+      startLocationManager()
+      updateLabels()
    }
    
    
@@ -60,8 +59,7 @@ CLLocationManagerDelegate {
          tagButton.isHidden = true
          let statusMessage: String
          if let error = lastLocationError as NSError? {
-            if error.domain == kCLErrorDomain &&
-               error.code == CLError.denied.rawValue {
+            if error.domain == kCLErrorDomain && error.code == CLError.denied.rawValue {
                statusMessage = "Location Services Disabled"
             } else {
                statusMessage = "Error Getting Location"
@@ -96,6 +94,7 @@ CLLocationManagerDelegate {
       print("didUpdateLocations \(newLocation)")
       
       location = newLocation
+      lastLocationError = nil
       updateLabels()
    }
    
@@ -110,11 +109,19 @@ CLLocationManagerDelegate {
       present(alert, animated: true, completion: nil)
    }
    
-   func stopLocationManger() {
+   func stopLocationManager() {
       if updatingLocation {
          locationManager.stopUpdatingLocation()
          locationManager.delegate = nil
          updatingLocation = false
+      }
+   }
+   
+   func startLocationManager() {
+      if CLLocationManager.locationServicesEnabled() {
+         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+         locationManager.startUpdatingLocation()
+         updatingLocation = true
       }
    }
    
