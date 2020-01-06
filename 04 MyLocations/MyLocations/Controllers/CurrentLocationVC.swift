@@ -62,6 +62,10 @@ CLLocationManagerDelegate {
                                       location.coordinate.longitude)
          tagButton.isHidden = false
          messageLabel.text = ""
+         
+         if let placemark = placemark {
+            
+         }
       } else {
          latitudeLabel.text = ""
          longitudeLabel.text = ""
@@ -106,7 +110,7 @@ CLLocationManagerDelegate {
       updateLabels()
    }
    
-   func locationManager(_ _manager: CLLocationManager,
+   func locationManager(_ manager: CLLocationManager,
                         didUpdateLocations locations: [CLLocation]) {
       let newLocation = locations.last!
       print("didUpdateLocations \(newLocation)")
@@ -124,6 +128,9 @@ CLLocationManagerDelegate {
          if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
             print("*** We're done!")
             stopLocationManager()
+            //            if distance > 0 {
+            //               performingReverseGeocoding = false
+            //         }
          }
          updateLabels()
          
@@ -131,19 +138,29 @@ CLLocationManagerDelegate {
             print("*** Going to geocode")
             
             performingReverseGeocoding = true
-            geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
-               placemarks, error in
-               if let error = error {
-                  print("*** Reverse Geocoding error: \(error.localizedDescription)")
-                  return
-               }
-               if let places = placemarks {
-                  print("*** Found places: \(places)")
-               }
+            geocoder.reverseGeocodeLocation(newLocation, completionHandler:
+               { placemarks, error in
+                  self.lastGeocodingError = error
+                  if error == nil, let p = placemarks, !p.isEmpty {
+                     self.placemark = p.last!
+                  } else {
+                     self.placemark = nil
+                  }
+                  self.performingReverseGeocoding = false
+                  self.updateLabels()
             })
+         }
+      } else if distance < 1 {
+         let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+         if timeInterval > 10 {
+            print("*** Force done!")
+            stopLocationManager()
+            updateLabels()
          }
       }
    }
+   
+   
    
    // MARK: Helper Methods
    func showLocationServicesDeniedAlert() {
