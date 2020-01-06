@@ -20,6 +20,7 @@ CLLocationManagerDelegate {
    var placemark: CLPlacemark?
    var performingReverseGeocoding = false
    var lastGeocodingError: Error?
+   var timer: Timer?
    
    
    // MARK: - IBOutlets
@@ -127,6 +128,16 @@ CLLocationManagerDelegate {
       return line1 + "\n" + line2
    }
    
+   @objc func didTimeOut() {
+      print("*** Time out")
+      if location == nil {
+         stopLocationManager()
+         lastLocationError = NSError(domain: "MyLocationsErrorDomain",
+                                     code: 1, userInfo: nil)
+         updateLabels()
+      }
+   }
+   
    
    // MARK: - CLLocationManagerDelegate
    func locationManager(_ manager: CLLocationManager,
@@ -152,8 +163,7 @@ CLLocationManagerDelegate {
          return
       }
       
-      var distance = CLLocationDistance(
-         Double.greatestFiniteMagnitude)
+      var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
       if let location = location {
          distance = newLocation.distance(from: location)
       }
@@ -215,14 +225,19 @@ CLLocationManagerDelegate {
          locationManager.stopUpdatingLocation()
          locationManager.delegate = nil
          updatingLocation = false
+         if let timer = timer {
+            timer.invalidate()
+         }
       }
    }
    
    func startLocationManager() {
       if CLLocationManager.locationServicesEnabled() {
+         locationManager.delegate = self
          locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
          locationManager.startUpdatingLocation()
          updatingLocation = true
+         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
       }
    }
    
