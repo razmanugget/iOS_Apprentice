@@ -11,11 +11,15 @@ import CoreLocation
 
 class CurrentLocationVC: UIViewController,
 CLLocationManagerDelegate {
-   
+   // MARK: - Variables/Constants
    let locationManager = CLLocationManager()
    var location: CLLocation?
    var updatingLocation = false
    var lastLocationError: Error?
+   let geocoder = CLGeocoder()
+   var placemark: CLPlacemark?
+   var performingReverseGeocoding = false
+   var lastGeocodingError: Error?
    
    
    // MARK: - IBOutlets
@@ -38,7 +42,13 @@ CLLocationManagerDelegate {
          showLocationServicesDeniedAlert()
          return
       }
-      startLocationManager()
+      if updatingLocation {
+         stopLocationManager()
+      } else {
+         location = nil
+         lastLocationError = nil
+         startLocationManager()
+      }
       updateLabels()
    }
    
@@ -116,6 +126,22 @@ CLLocationManagerDelegate {
             stopLocationManager()
          }
          updateLabels()
+         
+         if !performingReverseGeocoding {
+            print("*** Going to geocode")
+            
+            performingReverseGeocoding = true
+            geocoder.reverseGeocodeLocation(newLocation, completionHandler: {
+               placemarks, error in
+               if let error = error {
+                  print("*** Reverse Geocoding error: \(error.localizedDescription)")
+                  return
+               }
+               if let places = placemarks {
+                  print("*** Found places: \(places)")
+               }
+            })
+         }
       }
    }
    
