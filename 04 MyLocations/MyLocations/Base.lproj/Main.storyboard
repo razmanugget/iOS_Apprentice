@@ -64,11 +64,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtV-87-JhD">
-                                <rect key="frame" x="16" y="318.5" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="QtV-87-JhD">
+                                <rect key="frame" x="16" y="315.5" width="343" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="nal-kR-r1J"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="t5G-XR-QXl"/>
+                                </constraints>
                                 <state key="normal" title="Tag Location"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-R5-RtB">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-R5-RtB">
                                 <rect key="frame" x="16" y="572" width="343" height="30"/>
                                 <state key="normal" title="Get My Location"/>
                                 <connections>
