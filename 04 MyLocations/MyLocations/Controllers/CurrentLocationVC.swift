@@ -237,7 +237,11 @@ CLLocationManagerDelegate {
          locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
          locationManager.startUpdatingLocation()
          updatingLocation = true
-         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
+         timer = Timer.scheduledTimer(timeInterval: 60,
+                                      target: self,
+                                      selector: #selector(didTimeOut),
+                                      userInfo: nil,
+                                      repeats: false)
       }
    }
    
@@ -251,6 +255,11 @@ CLLocationManagerDelegate {
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       navigationController?.isNavigationBarHidden = true
+   }
+   
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      navigationController?.isNavigationBarHidden = false
    }
    
 }
