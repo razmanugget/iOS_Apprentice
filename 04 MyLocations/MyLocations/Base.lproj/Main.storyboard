@@ -372,7 +372,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="DsK-TP-YKx" kind="unwind" unwindAction="categoryPickerDidPickCategory:" id="M6h-j8-Kzu"/>
+                                    <segue destination="DsK-TP-YKx" kind="unwind" identifier="PickedCategory" unwindAction="categoryPickerDidPickCategory:" id="M6h-j8-Kzu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
