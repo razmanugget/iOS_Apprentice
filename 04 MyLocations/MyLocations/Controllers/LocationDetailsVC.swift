@@ -27,5 +27,4 @@ class LocationDetailsVC: UITableViewController {
       navigationController?.popViewController(animated: true)
    }
    
-   
 }
