@@ -15,6 +15,7 @@
 		F42A691D23C0B1A900E3FB51 /* MyLocations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42A691B23C0B1A900E3FB51 /* MyLocations.xcdatamodeld */; };
 		F42A691F23C0B1AD00E3FB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42A691E23C0B1AD00E3FB51 /* Assets.xcassets */; };
 		F42A692223C0B1AD00E3FB51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42A692023C0B1AD00E3FB51 /* LaunchScreen.storyboard */; };
+		F42AB02223C60E4A009788CB /* CategoryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42AB02123C60E4A009788CB /* CategoryPickerVC.swift */; };
 		F456781523C4DD1C00BE95A1 /* LocationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456781423C4DD1C00BE95A1 /* LocationDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		F42A691E23C0B1AD00E3FB51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42A692123C0B1AD00E3FB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42A692323C0B1AD00E3FB51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F42AB02123C60E4A009788CB /* CategoryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerVC.swift; sourceTree = "<group>"; };
 		F456781423C4DD1C00BE95A1 /* LocationDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				F42A691423C0B1A900E3FB51 /* CurrentLocationVC.swift */,
 				F456781423C4DD1C00BE95A1 /* LocationDetailsVC.swift */,
 				F42A691623C0B1A900E3FB51 /* SecondViewController.swift */,
+				F42AB02123C60E4A009788CB /* CategoryPickerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				F42A691723C0B1A900E3FB51 /* SecondViewController.swift in Sources */,
 				F42A691523C0B1A900E3FB51 /* CurrentLocationVC.swift in Sources */,
 				F42A691123C0B1A900E3FB51 /* AppDelegate.swift in Sources */,
+				F42AB02223C60E4A009788CB /* CategoryPickerVC.swift in Sources */,
 				F42A691323C0B1A900E3FB51 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

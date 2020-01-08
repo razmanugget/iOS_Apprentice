@@ -23,6 +23,8 @@ class LocationDetailsVC: UITableViewController {
    
    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
    var placemark: CLPlacemark?
+   var categoryName = "No Category"
+   
    
    // MARK: - IBOutlets
    @IBOutlet weak var descriptionTextView: UITextView!
@@ -40,6 +42,12 @@ class LocationDetailsVC: UITableViewController {
    
    @IBAction func cancel() {
       navigationController?.popViewController(animated: true)
+   }
+   
+   @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
+      let controller = segue.source as! CategoryPickerVC
+      categoryName = controller.selectedCategoryName
+      categoryLabel.text = categoryName
    }
    
    
@@ -72,12 +80,22 @@ class LocationDetailsVC: UITableViewController {
    }
    
    
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue,
+                         sender: Any?) {
+      if segue.identifier == "PickCategory" {
+         let controller = segue.destination as! CategoryPickerVC
+         controller.selectedCategoryName = categoryName
+      }
+   }
+   
+   
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
       
       descriptionTextView.text = ""
-      categoryLabel.text = ""
+      categoryLabel.text = categoryName
       
       latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
       longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
