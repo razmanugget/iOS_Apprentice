@@ -14,6 +14,7 @@ private let dateFormatter: DateFormatter = {
    let formatter = DateFormatter()
    formatter.dateStyle = .medium
    formatter.timeStyle = .short
+   print()
    return formatter
 }()
 
@@ -64,6 +65,10 @@ class LocationDetailsVC: UITableViewController {
          text += s
       }
       return text
+   }
+   
+   func format(date: Date) -> String {
+      return dateFormatter.string(from: date)
    }
    
    
