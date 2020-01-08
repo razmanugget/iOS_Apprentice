@@ -246,6 +246,15 @@ CLLocationManagerDelegate {
    }
    
    
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "TagLocation" {
+         let controller = segue.destination as! LocationDetailsVC
+         controller.coordinate = location!.coordinate
+         controller.placemark = placemark
+      }
+   }
+   
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
