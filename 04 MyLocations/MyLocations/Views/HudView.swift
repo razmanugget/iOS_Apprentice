@@ -19,10 +19,7 @@ class HudView: UIView {
          view.addSubview(hudView)
          view.isUserInteractionEnabled = false
          
-         hudView.backgroundColor = UIColor(red: 1,
-                                           green: 0,
-                                           blue: 0,
-                                           alpha: 0.5)
+         hudView.show(animated: animated)
          return hudView
    }
    
@@ -59,4 +56,29 @@ class HudView: UIView {
       
       text.draw(at: textPoint, withAttributes: attribs)
    }
+   
+   
+   // MARK: - Public / Helper methods
+   func show(animated: Bool) {
+      if animated {
+         // 1 setup initial state before animations
+         alpha = 0
+         transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+         // 2 calling UIView to setup the animation
+         UIView.animate(withDuration: 0.3, delay: 0,
+                        usingSpringWithDamping: 0.7,
+                        initialSpringVelocity: 0.5,
+                        options: [], animations: {
+            //3 state of the view after animation is complete
+            self.alpha = 1
+            self.transform = CGAffineTransform.identity
+         }, completion: nil)
+      }
+   }
+   
+   func hide() {
+      superview?.isUserInteractionEnabled = true
+      removeFromSuperview()
+   }
+   
 }
