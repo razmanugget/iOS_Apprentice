@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 // MARK: - Globals
 private let dateFormatter: DateFormatter = {
