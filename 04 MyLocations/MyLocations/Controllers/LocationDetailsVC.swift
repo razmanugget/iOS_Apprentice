@@ -26,6 +26,7 @@ class LocationDetailsVC: UITableViewController {
    var placemark: CLPlacemark?
    var categoryName = "No Category"
    var managedObjectContext: NSManagedObjectContext!
+   var date = Date()
    
    
    // MARK: - IBOutlets

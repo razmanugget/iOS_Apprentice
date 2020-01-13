@@ -12,6 +12,7 @@ import CoreData
 
 class CurrentLocationVC: UIViewController,
 CLLocationManagerDelegate {
+   
    // MARK: - Variables/Constants
    let locationManager = CLLocationManager()
    var location: CLLocation?
