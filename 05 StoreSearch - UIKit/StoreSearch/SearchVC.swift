@@ -9,12 +9,16 @@
 import UIKit
 
 class SearchVC: UIViewController {
-
+   
+   
+   
+   // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view.
    }
-
-
+   
+   
+   
 }
 
