@@ -8,6 +8,19 @@
 
 import UIKit
 
+
+// MARK: - Enums | Extensions | Protoc
+extension SearchVC: UISearchBarDelegate {
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      print("The search text is: '\(searchBar.text!)'")
+   }
+}
+
+extension SearchVC: UITableViewDelegate, UITableViewDataSource {
+   
+}
+
+
 class SearchVC: UIViewController {
    
    @IBOutlet weak var searchBar: UISearchBar!
@@ -23,4 +36,3 @@ class SearchVC: UIViewController {
    }
    
 }
-
