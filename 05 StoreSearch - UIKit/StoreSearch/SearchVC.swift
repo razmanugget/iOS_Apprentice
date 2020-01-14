@@ -10,15 +10,17 @@ import UIKit
 
 class SearchVC: UIViewController {
    
+   @IBOutlet weak var searchBar: UISearchBar!
+   @IBOutlet weak var tableView: UITableView!
    
    
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
-      // Do any additional setup after loading the view.
+      // allow for 20pt status bar, 44pt search bar
+      tableView.contentInset = UIEdgeInsets(top: 64, left: 0,
+                                            bottom: 0, right: 0)
    }
-   
-   
    
 }
 
