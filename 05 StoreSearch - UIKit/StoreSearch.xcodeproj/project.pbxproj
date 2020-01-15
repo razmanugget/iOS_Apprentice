@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F472839723CE3F450017E7AA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472839623CE3F450017E7AA /* SearchResult.swift */; };
+		F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */; };
 		F4FFE30623CCC7AD00699A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */; };
 		F4FFE30823CCC7AD00699A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */; };
 		F4FFE30A23CCC7AD00699A73 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30923CCC7AD00699A73 /* SearchVC.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		F472839623CE3F450017E7AA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F4FFE30223CCC7AD00699A73 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4E2C9ED23CED50C0033AE90 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */,
+				F4FFE30E23CCC7AF00699A73 /* Assets.xcassets */,
+				F4FFE31323CCC7AF00699A73 /* Info.plist */,
+				F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		F4E2C9EE23CED6040033AE90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4FFE31023CCC7AF00699A73 /* LaunchScreen.storyboard */,
+				F4FFE30B23CCC7AD00699A73 /* Main.storyboard */,
+				F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F4FFE2F923CCC7AD00699A73 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +81,10 @@
 		F4FFE30423CCC7AD00699A73 /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
-				F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */,
-				F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */,
+				F4E2C9ED23CED50C0033AE90 /* Support Files */,
 				F4FFE30923CCC7AD00699A73 /* SearchVC.swift */,
-				F4FFE30B23CCC7AD00699A73 /* Main.storyboard */,
 				F472839623CE3F450017E7AA /* SearchResult.swift */,
-				F4FFE30E23CCC7AF00699A73 /* Assets.xcassets */,
-				F4FFE31023CCC7AF00699A73 /* LaunchScreen.storyboard */,
-				F4FFE31323CCC7AF00699A73 /* Info.plist */,
+				F4E2C9EE23CED6040033AE90 /* Views */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -130,6 +149,7 @@
 			files = (
 				F4FFE31223CCC7AF00699A73 /* LaunchScreen.storyboard in Resources */,
 				F4FFE30F23CCC7AF00699A73 /* Assets.xcassets in Resources */,
+				F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */,
 				F4FFE30D23CCC7AD00699A73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3F6RMQTHU;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = "StoreSearch/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3F6RMQTHU;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = "StoreSearch/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
