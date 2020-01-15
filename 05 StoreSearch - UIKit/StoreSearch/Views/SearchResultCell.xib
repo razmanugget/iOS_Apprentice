@@ -8,34 +8,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="heu-0d-QQb">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="heu-0d-QQb" customClass="SearchResultCell" customModule="StoreSearch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="heu-0d-QQb" id="wxo-52-PKe">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tva-wk-wso">
-                        <rect key="frame" x="17" y="10" width="60" height="60"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Tva-wk-wso">
+                        <rect key="frame" x="16" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="GSI-bT-Whu"/>
+                            <constraint firstAttribute="height" constant="60" id="h8H-nK-9UW"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-Lh-S06">
-                        <rect key="frame" x="84" y="44" width="220" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRC-Lh-S06">
+                        <rect key="frame" x="84" y="44" width="260" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnl-Mg-Tjr">
-                        <rect key="frame" x="84" y="16" width="220" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnl-Mg-Tjr">
+                        <rect key="frame" x="84" y="16" width="275" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Qnl-Mg-Tjr" firstAttribute="leading" secondItem="Tva-wk-wso" secondAttribute="trailing" constant="8" id="Gpr-rv-Jzo"/>
+                    <constraint firstItem="GRC-Lh-S06" firstAttribute="leading" secondItem="Tva-wk-wso" secondAttribute="trailing" constant="8" id="IgB-HC-4gP"/>
+                    <constraint firstAttribute="trailing" secondItem="Qnl-Mg-Tjr" secondAttribute="trailing" constant="16" id="Nls-iT-GBO"/>
+                    <constraint firstItem="Qnl-Mg-Tjr" firstAttribute="top" secondItem="wxo-52-PKe" secondAttribute="top" constant="16" id="XjB-0S-2PL"/>
+                    <constraint firstItem="Tva-wk-wso" firstAttribute="leading" secondItem="wxo-52-PKe" secondAttribute="leading" constant="16" id="eVs-8E-1PS"/>
+                    <constraint firstItem="Tva-wk-wso" firstAttribute="top" secondItem="wxo-52-PKe" secondAttribute="top" constant="10" id="iJP-zv-Del"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GRC-Lh-S06" secondAttribute="bottom" constant="7" id="jLk-UT-Ek6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GRC-Lh-S06" secondAttribute="trailing" constant="16" id="oB2-SV-T8G"/>
+                    <constraint firstItem="GRC-Lh-S06" firstAttribute="top" secondItem="Qnl-Mg-Tjr" secondAttribute="bottom" constant="6" id="oB7-qG-2t5"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-144" y="50"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="GRC-Lh-S06" id="BJG-ch-Z1o"/>
+                <outlet property="artworkImageView" destination="Tva-wk-wso" id="Jdn-g0-Tpj"/>
+                <outlet property="nameLabel" destination="Qnl-Mg-Tjr" id="O8Q-tZ-rwP"/>
+            </connections>
+            <point key="canvasLocation" x="-144.80000000000001" y="49.475262368815599"/>
         </tableViewCell>
     </objects>
     <resources>
