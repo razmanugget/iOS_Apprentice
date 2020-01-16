@@ -91,10 +91,9 @@ class SearchVC: UIViewController {
    
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
+   @IBOutlet weak var searchBar2: UISearchBar!
    
-   // test commit
-   // test commit 2
-   
+  
    
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
