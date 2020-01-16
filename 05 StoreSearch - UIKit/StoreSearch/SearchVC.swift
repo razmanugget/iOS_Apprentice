@@ -98,6 +98,8 @@ class SearchVC: UIViewController {
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      searchBar.becomeFirstResponder()
       // allow for 20pt status bar, 44pt search bar
       tableView.contentInset = UIEdgeInsets(top: 64, left: 0,
                                             bottom: 0, right: 0)
