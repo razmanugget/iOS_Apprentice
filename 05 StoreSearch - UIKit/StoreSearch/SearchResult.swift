@@ -13,11 +13,14 @@ class ResultArray: Codable {
    var results = [SearchResult]()
 }
 
-class SearchResult: Codable {
+class SearchResult: Codable, CustomStringConvertible {
    var artistName: String? = ""
    var trackName: String? = ""
    
    var name: String {
       return trackName ?? ""
+   }
+   var description: String {
+      return "Name:\(name), Artist Name: \(artistName ?? "None")"
    }
 }

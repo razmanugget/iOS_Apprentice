@@ -21,10 +21,10 @@ extension SearchVC: UISearchBarDelegate {
          let url = iTunesURL(searchText: searchBar.text!)
          print("URL: '\(url)'")
          
-         if let jsonString = performStoreRequest(with: url) {
-            print("Received JSON string '\(jsonString)'")
+         if let data = performStoreRequest(with: url) {
+            let results = parse(data: data)
+            print("Got results: \(results)")
          }
-         
          tableView.reloadData()
       }
    }
