@@ -12,19 +12,28 @@ import UIKit
 // MARK: - Enums | Extensions | Protoc
 extension SearchVC: UISearchBarDelegate {
    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-      // dismiss the keyboard
-      searchBar.resignFirstResponder()
-      searchResults = []
-      hasSearched = true
-      if searchBar.text! != "justin bieber" {
-         for i in 0...2 {
-            let searchResult = SearchResult()
-            searchResult.name = String(format: "Fake Result %d for", i)
-            searchResult.artistName = searchBar.text!
-            searchResults.append(searchResult)
-         }
+      
+      if !searchBar.text!.isEmpty {
+         // dismiss the keyboard
+         searchBar.resignFirstResponder()
+         searchResults = []
+         hasSearched = true
+         
+         let url = iTunesURL(searchText: searchBar.text!)
+         print("URL: '\(url)'")
+         
+         tableView.reloadData()
       }
-      tableView.reloadData()
+      
+      //      if searchBar.text! != "justin bieber" {
+      //         for i in 0...2 {
+      //            let searchResult = SearchResult()
+      //            searchResult.name = String(format: "Fake Result %d for", i)
+      //            searchResult.artistName = searchBar.text!
+      //            searchResults.append(searchResult)
+      //         }
+      //      }
+      
    }
    func position(for bar: UIBarPositioning) -> UIBarPosition {
       return .topAttached
@@ -78,6 +87,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
 
 class SearchVC: UIViewController {
+   // MARK: - Variables/Constants
    var searchResults = [SearchResult]()
    var hasSearched = false
    
@@ -92,7 +102,15 @@ class SearchVC: UIViewController {
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
    
-  
+   
+   
+   // MARK: - Helper Methods
+   func iTunesURL(searchText: String) -> URL {
+      let urlString = String(format: "https://itunes.apple.com/search?term=%@", searchText)
+      let url = URL(string: urlString)
+      return url!
+   }
+   
    
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
