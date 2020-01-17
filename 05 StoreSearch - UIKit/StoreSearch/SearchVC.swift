@@ -12,7 +12,6 @@ import UIKit
 // MARK: - Enums | Extensions | Protoc
 extension SearchVC: UISearchBarDelegate {
    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-      
       if !searchBar.text!.isEmpty {
          // dismiss the keyboard
          searchBar.resignFirstResponder()
@@ -28,17 +27,8 @@ extension SearchVC: UISearchBarDelegate {
          
          tableView.reloadData()
       }
-      
-      //      if searchBar.text! != "justin bieber" {
-      //         for i in 0...2 {
-      //            let searchResult = SearchResult()
-      //            searchResult.name = String(format: "Fake Result %d for", i)
-      //            searchResult.artistName = searchBar.text!
-      //            searchResults.append(searchResult)
-      //         }
-      //      }
-      
    }
+   
    func position(for bar: UIBarPositioning) -> UIBarPosition {
       return .topAttached
    }
@@ -107,12 +97,23 @@ class SearchVC: UIViewController {
    @IBOutlet weak var tableView: UITableView!
    
    
-   func performStoreRequest(with url: URL) -> String? {
+   func performStoreRequest(with url: URL) -> Data? {
       do {
-         return try String(contentsOf: url, encoding: .utf8)
+         return try Data(contentsOf: url)
       } catch {
          print("Download Error: \(error.localizedDescription)")
          return nil
+      }
+   }
+   
+   func parse(data: Data) -> [SearchResult] {
+      do {
+         let decoder = JSONDecoder()
+         let result = try decoder.decode(ResultArray.self, from: data)
+         return result.results
+      } catch {
+         print("JSON Error: \(error)")
+         return []
       }
    }
    
