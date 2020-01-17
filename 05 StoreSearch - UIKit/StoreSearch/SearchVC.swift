@@ -22,6 +22,10 @@ extension SearchVC: UISearchBarDelegate {
          let url = iTunesURL(searchText: searchBar.text!)
          print("URL: '\(url)'")
          
+         if let jsonString = performStoreRequest(with: url) {
+            print("Received JSON string '\(jsonString)'")
+         }
+         
          tableView.reloadData()
       }
       
@@ -103,10 +107,20 @@ class SearchVC: UIViewController {
    @IBOutlet weak var tableView: UITableView!
    
    
+   func performStoreRequest(with url: URL) -> String? {
+      do {
+         return try String(contentsOf: url, encoding: .utf8)
+      } catch {
+         print("Download Error: \(error.localizedDescription)")
+         return nil
+      }
+   }
+   
    
    // MARK: - Helper Methods
    func iTunesURL(searchText: String) -> URL {
-      let urlString = String(format: "https://itunes.apple.com/search?term=%@", searchText)
+      let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+      let urlString = String(format: "https://itunes.apple.com/search?term=%@", encodedText)
       let url = URL(string: urlString)
       return url!
    }
