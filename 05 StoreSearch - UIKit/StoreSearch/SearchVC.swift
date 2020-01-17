@@ -102,6 +102,7 @@ class SearchVC: UIViewController {
          return try Data(contentsOf: url)
       } catch {
          print("Download Error: \(error.localizedDescription)")
+         showNetworkError()
          return nil
       }
    }
@@ -124,6 +125,17 @@ class SearchVC: UIViewController {
       let urlString = String(format: "https://itunes.apple.com/search?term=%@", encodedText)
       let url = URL(string: urlString)
       return url!
+   }
+   
+   func showNetworkError() {
+      let alert = UIAlertController(
+         title: "Whoops...",
+         message: "There was an error accessing the iTunes Store. Please try again.",
+         preferredStyle: .alert)
+      
+      let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(action)
+      present(alert, animated: true, completion: nil)
    }
    
    
