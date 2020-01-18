@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F472839723CE3F450017E7AA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472839623CE3F450017E7AA /* SearchResult.swift */; };
+		F48E174623D366B300E61BDC /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48E174523D366B300E61BDC /* LoadingCell.xib */; };
 		F4931B2F23CF5BA000BEEE0B /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4931B2E23CF5BA000BEEE0B /* NothingFoundCell.xib */; };
 		F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */; };
 		F4E2C9F023CF299C0033AE90 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		F472839623CE3F450017E7AA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		F48E174523D366B300E61BDC /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		F4931B2E23CF5BA000BEEE0B /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FFE31023CCC7AF00699A73 /* LaunchScreen.storyboard */,
+				F48E174523D366B300E61BDC /* LoadingCell.xib */,
 				F4FFE30B23CCC7AD00699A73 /* Main.storyboard */,
 				F4931B2E23CF5BA000BEEE0B /* NothingFoundCell.xib */,
 				F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */,
@@ -155,6 +158,7 @@
 			files = (
 				F4FFE31223CCC7AF00699A73 /* LaunchScreen.storyboard in Resources */,
 				F4FFE30F23CCC7AF00699A73 /* Assets.xcassets in Resources */,
+				F48E174623D366B300E61BDC /* LoadingCell.xib in Resources */,
 				F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */,
 				F4931B2F23CF5BA000BEEE0B /* NothingFoundCell.xib in Resources */,
 				F4FFE30D23CCC7AD00699A73 /* Main.storyboard in Resources */,
