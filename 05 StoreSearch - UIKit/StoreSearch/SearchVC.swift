@@ -24,7 +24,7 @@ extension SearchVC: UISearchBarDelegate {
          if let data = performStoreRequest(with: url) {
             searchResults = parse(data: data)
             // uses overridden < from SearchResult.swift
-            searchResults.sort(by: >)
+            searchResults.sort(by: <)
          }
          tableView.reloadData()
       }
@@ -128,7 +128,7 @@ class SearchVC: UIViewController {
    // MARK: - Helper Methods
    func iTunesURL(searchText: String) -> URL {
       let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-      let urlString = String(format: "https://itunes.apple.com/search?term=%@", encodedText)
+      let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", encodedText)
       let url = URL(string: urlString)
       return url!
    }
