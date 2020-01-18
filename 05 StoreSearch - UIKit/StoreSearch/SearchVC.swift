@@ -9,7 +9,7 @@
 import UIKit
 
 
-// MARK: - Enums | Extensions | Protoc
+// MARK: - Enums | Extensions | Protocol
 extension SearchVC: UISearchBarDelegate {
    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
       if !searchBar.text!.isEmpty {
@@ -23,8 +23,8 @@ extension SearchVC: UISearchBarDelegate {
          
          if let data = performStoreRequest(with: url) {
             searchResults = parse(data: data)
-            searchResults.sort { $0.name.localizedStandardCompare($1.name)
-               == .orderedAscending }
+            // uses overridden < from SearchResult.swift
+            searchResults.sort(by: >)
          }
          tableView.reloadData()
       }

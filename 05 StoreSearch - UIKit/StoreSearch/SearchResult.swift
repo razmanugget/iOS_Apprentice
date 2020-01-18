@@ -8,6 +8,16 @@
 
 import Foundation
 
+// MARK: - Global Function
+// overriding <
+func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
+   return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+}
+func > (lhs: SearchResult, rhs: SearchResult) -> Bool {
+   return lhs.name.localizedStandardCompare(rhs.name) == .orderedDescending
+}
+
+// MARK: - Classes
 class ResultArray: Codable {
    var resultCount = 0
    var results = [SearchResult]()
