@@ -20,22 +20,17 @@ extension SearchVC: UISearchBarDelegate {
          
          hasSearched = true
          searchResults = []
-         // using a queue provided by the system
-         let queue = DispatchQueue.global()
-         let url = self.iTunesURL(searchText: searchBar.text!)
          
-         queue.async {
-            if let data = self.performStoreRequest(with: url) {
-               self.searchResults = self.parse(data: data)
-               self.searchResults.sort(by: <)
-               // update the UI
-               DispatchQueue.main.async {
-                  self.isLoading = false
-                  self.tableView.reloadData()
-               }
-               return
+         let url = iTunesURL(searchText: searchBar.text!)
+         let session = URLSession.shared
+         let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+            if let error = error {
+               print("Failure! \(error.localizedDescription)")
+            } else {
+               print("Success! \(response!)")
             }
-         }
+         })
+         dataTask.resume()
       }
    }
    
@@ -122,17 +117,7 @@ class SearchVC: UIViewController {
    
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
-   
-   
-   func performStoreRequest(with url: URL) -> Data? {
-      do {
-         return try Data(contentsOf: url)
-      } catch {
-         print("Download Error: \(error.localizedDescription)")
-         showNetworkError()
-         return nil
-      }
-   }
+
    
    func parse(data: Data) -> [SearchResult] {
       do {
