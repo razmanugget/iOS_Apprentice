@@ -27,7 +27,7 @@ extension SearchVC: UISearchBarDelegate {
             if let error = error {
                print("Failure! \(error.localizedDescription)")
             } else {
-               print("Success! \(response!)")
+               print("Current Success! \(response!)")
             }
          })
          dataTask.resume()
