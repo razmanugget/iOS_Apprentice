@@ -17,6 +17,8 @@ extension SearchVC: UISearchBarDelegate {
          searchBar.resignFirstResponder()
          isLoading = true
          tableView.reloadData()
+         
+         hasSearched = true
          searchResults = []
          // using a queue provided by the system
          let queue = DispatchQueue.global()
@@ -26,8 +28,11 @@ extension SearchVC: UISearchBarDelegate {
             if let data = self.performStoreRequest(with: url) {
                self.searchResults = self.parse(data: data)
                self.searchResults.sort(by: <)
-               
-               print("Done!")
+               // update the UI
+               DispatchQueue.main.async {
+                  self.isLoading = false
+                  self.tableView.reloadData()
+               }
                return
             }
          }
