@@ -17,19 +17,20 @@ extension SearchVC: UISearchBarDelegate {
          searchBar.resignFirstResponder()
          isLoading = true
          tableView.reloadData()
-//         searchResults = []
-//         hasSearched = true
-//
-//         let url = iTunesURL(searchText: searchBar.text!)
-//         print("URL: '\(url)'")
-//
-//         if let data = performStoreRequest(with: url) {
-//            searchResults = parse(data: data)
-//            // uses overridden < from SearchResult.swift
-//            searchResults.sort(by: <)
-//         }
-//         isLoading = false
-//         tableView.reloadData()
+         searchResults = []
+         // using a queue provided by the system
+         let queue = DispatchQueue.global()
+         let url = self.iTunesURL(searchText: searchBar.text!)
+         
+         queue.async {
+            if let data = self.performStoreRequest(with: url) {
+               self.searchResults = self.parse(data: data)
+               self.searchResults.sort(by: <)
+               
+               print("Done!")
+               return
+            }
+         }
       }
    }
    

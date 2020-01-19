@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hji-fy-KvQ">
-                        <rect key="frame" x="119.5" y="20" width="136" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-mb-cnM">
+                        <rect key="frame" x="119.5" y="10" width="136" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6j-nB-BIa">
                                 <rect key="frame" x="20" y="20" width="68" height="20"/>
@@ -30,19 +30,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="96U-Na-jLN" firstAttribute="leading" secondItem="X6j-nB-BIa" secondAttribute="trailing" constant="8" id="5k4-up-mU5"/>
-                            <constraint firstAttribute="bottom" secondItem="X6j-nB-BIa" secondAttribute="bottom" id="7vn-jN-oce"/>
-                            <constraint firstItem="X6j-nB-BIa" firstAttribute="top" secondItem="hji-fy-KvQ" secondAttribute="top" constant="20" symbolic="YES" id="P6j-qy-l4z"/>
-                            <constraint firstItem="96U-Na-jLN" firstAttribute="top" secondItem="hji-fy-KvQ" secondAttribute="top" constant="20" symbolic="YES" id="Pc1-GE-sME"/>
-                            <constraint firstAttribute="bottom" secondItem="96U-Na-jLN" secondAttribute="bottom" id="fwY-Au-Jhx"/>
-                            <constraint firstItem="X6j-nB-BIa" firstAttribute="leading" secondItem="hji-fy-KvQ" secondAttribute="leading" constant="20" symbolic="YES" id="lUo-Ro-sqQ"/>
-                            <constraint firstAttribute="trailing" secondItem="96U-Na-jLN" secondAttribute="trailing" constant="20" symbolic="YES" id="wEP-Zb-SaH"/>
+                            <constraint firstItem="96U-Na-jLN" firstAttribute="top" secondItem="JT4-mb-cnM" secondAttribute="top" constant="20" symbolic="YES" id="DEb-RL-bDS"/>
+                            <constraint firstAttribute="bottom" secondItem="96U-Na-jLN" secondAttribute="bottom" constant="20" id="LwA-GL-M5E"/>
+                            <constraint firstItem="X6j-nB-BIa" firstAttribute="leading" secondItem="JT4-mb-cnM" secondAttribute="leading" constant="20" symbolic="YES" id="RGt-LY-qbk"/>
+                            <constraint firstItem="96U-Na-jLN" firstAttribute="leading" secondItem="X6j-nB-BIa" secondAttribute="trailing" constant="8" id="Ug9-Ru-UnE"/>
+                            <constraint firstAttribute="trailing" secondItem="96U-Na-jLN" secondAttribute="trailing" constant="20" symbolic="YES" id="ge8-5X-0L1"/>
+                            <constraint firstItem="X6j-nB-BIa" firstAttribute="top" secondItem="JT4-mb-cnM" secondAttribute="top" constant="20" symbolic="YES" id="p63-Wc-nLi"/>
+                            <constraint firstAttribute="bottom" secondItem="X6j-nB-BIa" secondAttribute="bottom" constant="20" id="zFd-De-QoD"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hji-fy-KvQ" firstAttribute="centerY" secondItem="scI-hG-5zD" secondAttribute="centerY" id="3xt-D4-sSJ"/>
-                    <constraint firstItem="hji-fy-KvQ" firstAttribute="centerX" secondItem="scI-hG-5zD" secondAttribute="centerX" id="Wvf-AD-82u"/>
+                    <constraint firstItem="JT4-mb-cnM" firstAttribute="centerY" secondItem="scI-hG-5zD" secondAttribute="centerY" id="rha-dq-q8R"/>
+                    <constraint firstItem="JT4-mb-cnM" firstAttribute="centerX" secondItem="scI-hG-5zD" secondAttribute="centerX" id="yNW-ss-Sn2"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="91" y="150"/>
