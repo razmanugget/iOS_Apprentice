@@ -7,31 +7,55 @@
 //
 
 import UIKit
-
+var dataTask: URLSessionDataTask?
 
 // MARK: - Enums | Extensions | Protocol
 extension SearchVC: UISearchBarDelegate {
-   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+   func performSearch() {
       if !searchBar.text!.isEmpty {
          // dismiss the keyboard
          searchBar.resignFirstResponder()
+         dataTask?.cancel()
          isLoading = true
          tableView.reloadData()
          
          hasSearched = true
          searchResults = []
          
-         let url = iTunesURL(searchText: searchBar.text!)
+         let url = iTunesURL(searchText: searchBar.text!,
+                             category: segmentedControl.selectedSegmentIndex)
          let session = URLSession.shared
-         let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-            if let error = error {
-               print("Failure! \(error.localizedDescription)")
+         dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+            if let error = error as NSError?, error.code == -999 {
+               return
+            } else if let httpResponse = response as? HTTPURLResponse,
+               httpResponse.statusCode == 200 {
+               if let data = data {
+                  self.searchResults = self.parse(data: data)
+                  self.searchResults.sort(by: <)
+                  // switching back to the main thread
+                  DispatchQueue.main.async {
+                     self.isLoading = false
+                     self.tableView.reloadData()
+                  }
+                  return
+               }
             } else {
-               print("Current Success! \(response!)")
+               print("Failure! \(response!)")
+            }
+            DispatchQueue.main.async {
+               self.hasSearched = false
+               self.isLoading = false
+               self.tableView.reloadData()
+               self.showNetworkError()
             }
          })
-         dataTask.resume()
+         dataTask?.resume()
       }
+   }
+   
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      performSearch()
    }
    
    func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -106,6 +130,12 @@ class SearchVC: UIViewController {
    var hasSearched = false
    var isLoading = false
    
+   @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
+   @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+      performSearch()
+   }
+   
    
    struct TableView {
       struct CellIdentifiers {
@@ -117,7 +147,7 @@ class SearchVC: UIViewController {
    
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
-
+   
    
    func parse(data: Data) -> [SearchResult] {
       do {
@@ -132,9 +162,16 @@ class SearchVC: UIViewController {
    
    
    // MARK: - Helper Methods
-   func iTunesURL(searchText: String) -> URL {
+   func iTunesURL(searchText: String, category: Int) -> URL {
+      let kind: String
+      switch category {
+      case 1: kind = "musicTrack"
+      case 2: kind = "software"
+      case 3: kind = "ebook"
+      default: kind = ""
+      }
       let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-      let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", encodedText)
+      let urlString =  "https://itunes.apple.com/search?" + "term=\(encodedText)&limit=200&entity=\(kind)"
       let url = URL(string: urlString)
       return url!
    }
@@ -157,7 +194,7 @@ class SearchVC: UIViewController {
       
       searchBar.becomeFirstResponder()
       // allow for 20pt status bar, 44pt search bar
-      tableView.contentInset = UIEdgeInsets(top: 64, left: 0,
+      tableView.contentInset = UIEdgeInsets(top: 108, left: 0,
                                             bottom: 0, right: 0)
       var cellNib = UINib(nibName: TableView.CellIdentifiers.searchResultCell, bundle: nil)
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
@@ -165,6 +202,14 @@ class SearchVC: UIViewController {
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.nothingFoundCell)
       cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
+      
+      let segmentColor = UIColor(red: 10/255, green: 80/255, blue: 80/255, alpha: 1)
+      let selectedTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+      let normalTextAttributes = [NSAttributedString.Key.foregroundColor: segmentColor]
+      segmentedControl.selectedSegmentTintColor = segmentColor
+      segmentedControl.setTitleTextAttributes(normalTextAttributes, for: .normal)
+          segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
+      segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .highlighted)
    }
    
 }
