@@ -25,25 +25,27 @@ extension SearchVC: UISearchBarDelegate {
          let session = URLSession.shared
          let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
             if let error = error {
-                       print("Failure! \(error.localizedDescription)")
-                    } else if let httpResponse = response as? HTTPURLResponse,
-                       httpResponse.statusCode == 200 {
-                       print("Success! \(data!)")
-                    } else {
-                       print("Failure! \(response!)")
-                    }
-            
-            
-//            if let error = error {
-//               print("Failure! \(error.localizedDescription)")
-//            } else {
-//               print("Current Success! \(response!)")
-//            }
+               print("Failure! \(error.localizedDescription)")
+            } else if let httpResponse = response as? HTTPURLResponse,
+               httpResponse.statusCode == 200 {
+               if let data = data {
+                  self.searchResults = self.parse(data: data)
+                  self.searchResults.sort(by: <)
+                  // switching back to the main thread
+                  DispatchQueue.main.async {
+                     self.isLoading = false
+                     self.tableView.reloadData()
+                  }
+                  return
+               }
+            } else {
+               print("Failure! \(response!)")
+            }
          })
          dataTask.resume()
       }
    }
-
+   
    
    
    func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -129,7 +131,7 @@ class SearchVC: UIViewController {
    
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
-
+   
    
    func parse(data: Data) -> [SearchResult] {
       do {
@@ -146,7 +148,7 @@ class SearchVC: UIViewController {
    // MARK: - Helper Methods
    func iTunesURL(searchText: String) -> URL {
       let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-      let urlString = String(format: "https://itunes.apple.com/searchlol?term=%@&limit=200", encodedText)
+      let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", encodedText)
       let url = URL(string: urlString)
       return url!
    }
