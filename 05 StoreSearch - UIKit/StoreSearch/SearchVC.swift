@@ -11,7 +11,7 @@ var dataTask: URLSessionDataTask?
 
 // MARK: - Enums | Extensions | Protocol
 extension SearchVC: UISearchBarDelegate {
-   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+   func performSearch() {
       if !searchBar.text!.isEmpty {
          // dismiss the keyboard
          searchBar.resignFirstResponder()
@@ -53,7 +53,9 @@ extension SearchVC: UISearchBarDelegate {
       }
    }
    
-   
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      performSearch()
+   }
    
    func position(for bar: UIBarPositioning) -> UIBarPosition {
       return .topAttached
@@ -127,6 +129,12 @@ class SearchVC: UIViewController {
    var hasSearched = false
    var isLoading = false
    
+   @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
+   @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+      performSearch()
+   }
+   
    
    struct TableView {
       struct CellIdentifiers {
@@ -178,7 +186,7 @@ class SearchVC: UIViewController {
       
       searchBar.becomeFirstResponder()
       // allow for 20pt status bar, 44pt search bar
-      tableView.contentInset = UIEdgeInsets(top: 64, left: 0,
+      tableView.contentInset = UIEdgeInsets(top: 108, left: 0,
                                             bottom: 0, right: 0)
       var cellNib = UINib(nibName: TableView.CellIdentifiers.searchResultCell, bundle: nil)
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
@@ -186,6 +194,14 @@ class SearchVC: UIViewController {
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.nothingFoundCell)
       cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
       tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
+      
+      let segmentColor = UIColor(red: 10/255, green: 80/255, blue: 80/255, alpha: 1)
+      let selectedTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+      let normalTextAttributes = [NSAttributedString.Key.foregroundColor: segmentColor]
+      segmentedControl.selectedSegmentTintColor = segmentColor
+      segmentedControl.setTitleTextAttributes(normalTextAttributes, for: .normal)
+          segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
+      segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .highlighted)
    }
    
 }
