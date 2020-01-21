@@ -8,12 +8,25 @@
 
 import UIKit
 
+
 class SearchResultCell: UITableViewCell {
    
    @IBOutlet weak var nameLabel: UILabel!
    @IBOutlet weak var artistNameLabel: UILabel!
    @IBOutlet weak var artworkImageView: UIImageView!
    
+   // MARK: - Public Methods
+   func configure(for result: SearchResult) {
+      nameLabel.text = result.name
+      
+      if result.artist.isEmpty {
+         artistNameLabel.text = "Unknown"
+      } else {
+         artistNameLabel.text = String(format: "%@ (%@)",
+                                       result.artist, result.type)
+      }
+   }
+
    
    override func awakeFromNib() {
       super.awakeFromNib()
