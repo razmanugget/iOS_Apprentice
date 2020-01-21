@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SearchVC-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="BYZ-38-t0r" customClass="SearchVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,11 +67,54 @@
                         <outlet property="searchBar" destination="vO8-cA-HD0" id="3sK-uB-vKO"/>
                         <outlet property="segmentedControl" destination="1Jn-EP-tjd" id="25d-W3-eXp"/>
                         <outlet property="tableView" destination="SCG-Q8-ZaQ" id="kDm-pm-Bse"/>
+                        <segue destination="2Wm-xt-Xe9" kind="presentation" identifier="ShowDetail" id="PaN-52-KG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="HfF-xw-XiE">
+            <objects>
+                <viewController id="2Wm-xt-Xe9" userLabel="Detail" customClass="DetailVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wT9-Hj-6Mu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-Tp-Jwg" userLabel="Pop-up View">
+                                <rect key="frame" x="67.5" y="203.5" width="240" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-rj-w9s" userLabel="Close Button">
+                                        <rect key="frame" x="4" y="4" width="15" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton"/>
+                                        <connections>
+                                            <action selector="close" destination="2Wm-xt-Xe9" eventType="touchUpInside" id="INY-a5-Fc4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="0ek-vo-U3Y"/>
+                                    <constraint firstAttribute="width" constant="240" id="BHx-iy-4yw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Upz-Tp-Jwg" firstAttribute="centerX" secondItem="wT9-Hj-6Mu" secondAttribute="centerX" id="d8I-4t-JSX"/>
+                            <constraint firstItem="Upz-Tp-Jwg" firstAttribute="centerY" secondItem="wT9-Hj-6Mu" secondAttribute="centerY" id="xLP-lF-tJS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2yQ-ze-X7O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWp-BP-A0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="137"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="CloseButton" width="15" height="15"/>
+    </resources>
 </document>

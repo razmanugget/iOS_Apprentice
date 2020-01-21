@@ -13,6 +13,7 @@
 		F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */; };
 		F4E2C9F023CF299C0033AE90 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */; };
 		F4F855FE23D708AF000E7C87 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F855FD23D708AF000E7C87 /* UIImageView+DownloadImage.swift */; };
+		F4F8560123D74764000E7C87 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F8560023D74764000E7C87 /* DetailVC.swift */; };
 		F4FFE30623CCC7AD00699A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */; };
 		F4FFE30823CCC7AD00699A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */; };
 		F4FFE30A23CCC7AD00699A73 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FFE30923CCC7AD00699A73 /* SearchVC.swift */; };
@@ -27,6 +28,7 @@
 		F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F4F855FD23D708AF000E7C87 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		F4F8560023D74764000E7C87 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		F4FFE30223CCC7AD00699A73 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FFE30523CCC7AD00699A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				F4FFE30E23CCC7AF00699A73 /* Assets.xcassets */,
 				F4FFE31323CCC7AF00699A73 /* Info.plist */,
 				F4FFE30723CCC7AD00699A73 /* SceneDelegate.swift */,
+				F4F855FD23D708AF000E7C87 /* UIImageView+DownloadImage.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -61,12 +64,30 @@
 		F4E2C9EE23CED6040033AE90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F48E174523D366B300E61BDC /* LoadingCell.xib */,
 				F4FFE30B23CCC7AD00699A73 /* Main.storyboard */,
+				F48E174523D366B300E61BDC /* LoadingCell.xib */,
 				F4931B2E23CF5BA000BEEE0B /* NothingFoundCell.xib */,
 				F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F4F855FF23D74724000E7C87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F472839623CE3F450017E7AA /* SearchResult.swift */,
+				F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F4F8560223D7476D000E7C87 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4F8560023D74764000E7C87 /* DetailVC.swift */,
+				F4FFE30923CCC7AD00699A73 /* SearchVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F4FFE2F923CCC7AD00699A73 = {
@@ -90,10 +111,8 @@
 			children = (
 				F4E2C9ED23CED50C0033AE90 /* Support Files */,
 				F4E2C9EE23CED6040033AE90 /* Views */,
-				F4F855FD23D708AF000E7C87 /* UIImageView+DownloadImage.swift */,
-				F4FFE30923CCC7AD00699A73 /* SearchVC.swift */,
-				F472839623CE3F450017E7AA /* SearchResult.swift */,
-				F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */,
+				F4F8560223D7476D000E7C87 /* Controllers */,
+				F4F855FF23D74724000E7C87 /* Models */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -177,6 +196,7 @@
 				F472839723CE3F450017E7AA /* SearchResult.swift in Sources */,
 				F4FFE30823CCC7AD00699A73 /* SceneDelegate.swift in Sources */,
 				F4E2C9F023CF299C0033AE90 /* SearchResultCell.swift in Sources */,
+				F4F8560123D74764000E7C87 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
