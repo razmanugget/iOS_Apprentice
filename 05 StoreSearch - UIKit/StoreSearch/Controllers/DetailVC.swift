@@ -8,8 +8,21 @@
 
 import UIKit
 
+// MARK: - Extensions
+extension DetailVC: UIViewControllerTransitioningDelegate {
+   func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+      return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+   }
+}
+
+
 class DetailVC: UIViewController {
    
+   required init?(coder aDecoder: NSCoder) {
+      super.init(coder: aDecoder)
+      modalPresentationStyle = .custom
+      transitioningDelegate = self
+   }
    
    // MARK: - Actions
    @IBAction func close() {
