@@ -184,6 +184,17 @@ class SearchVC: UIViewController {
    }
    
    
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "ShowDetail" {
+         let detailVC = segue.destination as! DetailVC
+         let indexPath = sender as! IndexPath
+         let searchResult = searchResults[indexPath.row]
+         detailVC.searchResult = searchResult
+      }
+   }
+   
+   
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
