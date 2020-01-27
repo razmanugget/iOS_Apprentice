@@ -24,6 +24,8 @@ extension DetailVC: UIGestureRecognizerDelegate {
 
 
 class DetailVC: UIViewController {
+   var searchResult: SearchResult!
+   
    @IBOutlet weak var popupView: UIView!
    @IBOutlet weak var artworkImageView: UIImageView!
    @IBOutlet weak var nameLabel: UILabel!
@@ -45,6 +47,19 @@ class DetailVC: UIViewController {
    }
    
    
+   // MARK: - Helper Methods
+   func updateUI() {
+      nameLabel.text = searchResult.name
+      
+      if searchResult.artist.isEmpty {
+         artistNameLabel.text = "Unknown"
+      } else {
+         artistNameLabel.text = searchResult.artist
+      }
+      kindLabel.text = searchResult.type
+      genreLabel.text = searchResult.genre
+   }
+   
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -58,6 +73,10 @@ class DetailVC: UIViewController {
       gestureRecognizer.cancelsTouchesInView = false
       gestureRecognizer.delegate = self
       view.addGestureRecognizer(gestureRecognizer)
+      
+      if searchResult != nil {
+         updateUI()
+      }
    }
    
 }
