@@ -24,6 +24,7 @@ extension DetailVC: UIGestureRecognizerDelegate {
 
 
 class DetailVC: UIViewController {
+   // MARK: - Variables | Outlets
    var searchResult: SearchResult!
    var downloadTask: URLSessionDownloadTask?
    
@@ -36,10 +37,10 @@ class DetailVC: UIViewController {
    @IBOutlet weak var priceButton: UIButton!
    
    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        modalPresentationStyle = .custom
-        transitioningDelegate = self
-     }
+      super.init(coder: aDecoder)
+      modalPresentationStyle = .custom
+      transitioningDelegate = self
+   }
    
    deinit {
       print("deinit \(self)")
@@ -50,8 +51,7 @@ class DetailVC: UIViewController {
    // MARK: - Actions
    @IBAction func openInStore() {
       if let url = URL(string: searchResult.storeURL) {
-         UIApplication.shared.open(url, options: [:],
-                                   completionHandler: nil)
+         UIApplication.shared.open(url, options: [:], completionHandler: nil)
       }
    }
    
@@ -93,7 +93,7 @@ class DetailVC: UIViewController {
       }
    }
    
-   
+   // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
       view.tintColor = UIColor(red: 20/255, green: 160/255,

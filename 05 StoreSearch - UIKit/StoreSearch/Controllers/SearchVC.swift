@@ -127,11 +127,14 @@ class SearchVC: UIViewController {
    var isLoading = false
    
    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   @IBOutlet weak var searchBar: UISearchBar!
+   @IBOutlet weak var tableView: UITableView!
    
+   
+   // MARK: - Actions
    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
       performSearch()
    }
-   
    
    struct TableView {
       struct CellIdentifiers {
@@ -140,10 +143,6 @@ class SearchVC: UIViewController {
          static let loadingCell = "LoadingCell"
       }
    }
-   
-   @IBOutlet weak var searchBar: UISearchBar!
-   @IBOutlet weak var tableView: UITableView!
-   
    
    func parse(data: Data) -> [SearchResult] {
       do {
@@ -215,7 +214,7 @@ class SearchVC: UIViewController {
       let normalTextAttributes = [NSAttributedString.Key.foregroundColor: segmentColor]
       segmentedControl.selectedSegmentTintColor = segmentColor
       segmentedControl.setTitleTextAttributes(normalTextAttributes, for: .normal)
-          segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
+      segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
       segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .highlighted)
    }
    
