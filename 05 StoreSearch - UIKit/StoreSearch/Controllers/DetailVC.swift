@@ -25,6 +25,7 @@ extension DetailVC: UIGestureRecognizerDelegate {
 
 class DetailVC: UIViewController {
    var searchResult: SearchResult!
+   var downloadTask: URLSessionDownloadTask?
    
    @IBOutlet weak var popupView: UIView!
    @IBOutlet weak var artworkImageView: UIImageView!
@@ -34,7 +35,19 @@ class DetailVC: UIViewController {
    @IBOutlet weak var genreLabel: UILabel!
    @IBOutlet weak var priceButton: UIButton!
    
+   required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        modalPresentationStyle = .custom
+        transitioningDelegate = self
+     }
    
+   deinit {
+      print("deinit \(self)")
+      downloadTask?.cancel()
+   }
+   
+   
+   // MARK: - Actions
    @IBAction func openInStore() {
       if let url = URL(string: searchResult.storeURL) {
          UIApplication.shared.open(url, options: [:],
@@ -42,13 +55,6 @@ class DetailVC: UIViewController {
       }
    }
    
-   required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-      modalPresentationStyle = .custom
-      transitioningDelegate = self
-   }
-   
-   // MARK: - Actions
    @IBAction func close() {
       dismiss(animated: true, completion: nil)
    }
@@ -80,6 +86,11 @@ class DetailVC: UIViewController {
          priceText = ""
       }
       priceButton.setTitle(priceText, for: .normal)
+      
+      // get image
+      if let largeURL = URL(string: searchResult.imageLarge) {
+         downloadTask = artworkImageView.loadImage(url: largeURL)
+      }
    }
    
    
