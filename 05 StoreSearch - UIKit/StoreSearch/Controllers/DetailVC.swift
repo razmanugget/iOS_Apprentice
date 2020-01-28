@@ -59,7 +59,7 @@ class DetailVC: UIViewController {
       kindLabel.text = searchResult.type
       genreLabel.text = searchResult.genre
       
-      // show price
+      // show price -> currency
       let formatter = NumberFormatter()
       formatter.numberStyle = .currency
       formatter.currencyCode = searchResult.currency

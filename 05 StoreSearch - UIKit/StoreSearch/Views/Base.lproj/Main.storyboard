@@ -139,9 +139,11 @@
                                         <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwW-Hj-n6x">
-                                        <rect key="frame" x="164" y="208" width="68" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwW-Hj-n6x">
+                                        <rect key="frame" x="173" y="208" width="59" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="2ys-T3-7Q6"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="$9.99" backgroundImage="PriceButton"/>
                                     </button>
@@ -150,6 +152,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="0ek-vo-U3Y"/>
                                     <constraint firstAttribute="width" constant="240" id="BHx-iy-4yw"/>
+                                    <constraint firstAttribute="trailing" secondItem="BwW-Hj-n6x" secondAttribute="trailing" constant="8" id="rc7-tD-nQa"/>
+                                    <constraint firstAttribute="bottom" secondItem="BwW-Hj-n6x" secondAttribute="bottom" constant="8" id="yis-4a-do7"/>
                                 </constraints>
                             </view>
                         </subviews>
