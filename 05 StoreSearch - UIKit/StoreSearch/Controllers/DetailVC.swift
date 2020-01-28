@@ -35,6 +35,13 @@ class DetailVC: UIViewController {
    @IBOutlet weak var priceButton: UIButton!
    
    
+   @IBAction func openInStore() {
+      if let url = URL(string: searchResult.storeURL) {
+         UIApplication.shared.open(url, options: [:],
+                                   completionHandler: nil)
+      }
+   }
+   
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       modalPresentationStyle = .custom
