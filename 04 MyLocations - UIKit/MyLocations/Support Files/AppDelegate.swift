@@ -30,10 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
       -> Bool {
          let tabController = window!.rootViewController as! UITabBarController
-         if let tabViewControllers = tabController.viewControllers {
-            let navController = tabViewControllers[0] as! UINavigationController
+         
+         if let tabViewController = tabController.viewControllers {
+            let navController = tabViewController[0] as! UINavigationController
             let controller = navController.viewControllers.first as! CurrentLocationVC
-            controller.managedObjectContext = managedObjectContext
+            controller.managedObject = managedObjectContext
          }
          print(applicationDocumentsDirectory)
          return true
