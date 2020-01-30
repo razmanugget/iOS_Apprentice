@@ -13,6 +13,9 @@ extension DetailVC: UIViewControllerTransitioningDelegate {
    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
       return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
    }
+   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      return SlideOutAnimationController()
+   }
 }
 
 extension DetailVC: UIGestureRecognizerDelegate {

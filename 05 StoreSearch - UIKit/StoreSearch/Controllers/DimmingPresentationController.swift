@@ -22,8 +22,17 @@ class DimmingPresentationController: UIPresentationController {
       // animate background gradient view -> nice
       dimmingView.alpha = 0
       if let coordinator = presentedViewController.transitionCoordinator {
+         // pass animations in closures to keep transitions smooth
          coordinator.animate(alongsideTransition: { _ in
             self.dimmingView.alpha = 1
+         }, completion: nil)
+      }
+   }
+   
+   override func dismissalTransitionWillBegin() {
+      if let coordinator = presentedViewController.transitionCoordinator {
+         coordinator.animate(alongsideTransition: { _ in
+            self.dimmingView.alpha = 0
          }, completion: nil)
       }
    }
