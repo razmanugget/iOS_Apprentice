@@ -60,6 +60,12 @@ class DetailVC: UIViewController {
    }
    
    
+   // MARK: - Functions
+   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      return BounceAnimationController()
+   }
+   
+   
    // MARK: - Helper Methods
    func updateUI() {
       nameLabel.text = searchResult.name
