@@ -125,6 +125,7 @@ class SearchVC: UIViewController {
    var searchResults = [SearchResult]()
    var hasSearched = false
    var isLoading = false
+   var landscapeVC: LandscapeVC?
    
    @IBOutlet weak var segmentedControl: UISegmentedControl!
    @IBOutlet weak var searchBar: UISearchBar!
@@ -195,6 +196,20 @@ class SearchVC: UIViewController {
    
    
    // MARK: - View Controller Life Cycle
+   override func willTransition(
+      to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+      super.willTransition(to: newCollection, with: coordinator)
+      
+      switch newCollection.verticalSizeClass {
+      case .compact:
+         showLandscape(with: coordinator)
+      case .regular, .unspecified:
+         hideLandscape(with: coordinator)
+      @unknown default:
+         fatalError()
+      }
+   }
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
