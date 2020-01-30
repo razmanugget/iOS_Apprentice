@@ -61,6 +61,7 @@ class DetailVC: UIViewController {
    
    
    // MARK: - Functions
+   // animating the detail bounce in -> annoying
    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       return BounceAnimationController()
    }
