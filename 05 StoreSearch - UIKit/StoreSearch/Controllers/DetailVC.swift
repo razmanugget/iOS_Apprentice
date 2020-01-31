@@ -28,8 +28,14 @@ extension DetailVC: UIGestureRecognizerDelegate {
 
 class DetailVC: UIViewController {
    // MARK: - Variables | Outlets
+   enum AnimationStyle {
+      case slide
+      case fade
+   }
+   
    var searchResult: SearchResult!
    var downloadTask: URLSessionDownloadTask?
+   var dismissStyle = AnimationStyle.fade
    
    @IBOutlet weak var popupView: UIView!
    @IBOutlet weak var artworkImageView: UIImageView!
@@ -59,6 +65,7 @@ class DetailVC: UIViewController {
    }
    
    @IBAction func close() {
+      dismissStyle = .slide
       dismiss(animated: true, completion: nil)
    }
    
