@@ -199,6 +199,10 @@ class SearchVC: UIViewController {
          // new view fades in from black
          coordinator.animate(alongsideTransition: { _ in
             controller.view.alpha = 1
+            self.searchBar.resignFirstResponder()
+            if self.presentedViewController != nil {
+               self.dismiss(animated: true, completion: nil)
+            }
          }, completion: { _ in
             // the new VC has a parent VC with didMove
             controller.didMove(toParent: self)
