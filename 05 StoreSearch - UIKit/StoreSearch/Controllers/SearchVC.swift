@@ -201,7 +201,12 @@ class SearchVC: UIViewController {
    }
    
    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
-      
+      if let controller = landscapeVC {
+         controller.willMove(toParent: nil)
+         controller.view.removeFromSuperview()
+         controller.removeFromParent()
+         landscapeVC = nil
+      }
    }
    
    
