@@ -192,20 +192,32 @@ class SearchVC: UIViewController {
       if let controller = landscapeVC {
          // set the size / position of the new controller
          controller.view.frame = view.bounds
+         controller.view.alpha = 0
          // add the controller's view as a subview
          view.addSubview(controller.view)
          addChild(controller)
-         // the new VC has a parent VC with didMove
-         controller.didMove(toParent: self)
+         // new view fades in from black
+         coordinator.animate(alongsideTransition: { _ in
+            controller.view.alpha = 1
+         }, completion: { _ in
+            // the new VC has a parent VC with didMove
+            controller.didMove(toParent: self)
+         })
       }
    }
    
    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
       if let controller = landscapeVC {
          controller.willMove(toParent: nil)
-         controller.view.removeFromSuperview()
-         controller.removeFromParent()
-         landscapeVC = nil
+         // fade in from black
+         coordinator.animate(alongsideTransition: { _ in
+            controller.view.alpha = 0
+         }, completion: { _ in
+            controller.view.removeFromSuperview()
+            controller.removeFromParent()
+            self.landscapeVC = nil
+         })
+         
       }
    }
    
