@@ -183,6 +183,27 @@ class SearchVC: UIViewController {
       present(alert, animated: true, completion: nil)
    }
    
+   func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+      // check to make sure landscape isn't already enabled
+      guard landscapeVC == nil else { return }
+      // with no segue, must instantiate the VC manually
+      landscapeVC = storyboard!.instantiateViewController(
+         withIdentifier: "LandscapeVC") as? LandscapeVC
+      if let controller = landscapeVC {
+         // set the size / position of the new controller
+         controller.view.frame = view.bounds
+         // add the controller's view as a subview
+         view.addSubview(controller.view)
+         addChild(controller)
+         // the new VC has a parent VC with didMove
+         controller.didMove(toParent: self)
+      }
+   }
+   
+   func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+      
+   }
+   
    
    // MARK: - Navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
