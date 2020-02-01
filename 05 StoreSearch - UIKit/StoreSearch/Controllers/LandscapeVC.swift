@@ -55,7 +55,45 @@ class LandscapeVC: UIViewController {
          break
       }
       
-      // TODO: more coming
+      // button size
+      let buttonWidth: CGFloat = 82
+      let buttonHeight: CGFloat = 82
+      let paddingHorz = (itemWidth - buttonWidth)/2
+      let paddingVert = (itemHeight - buttonHeight)/2
+      
+      // add the buttons
+      var row = 0
+      var column = 0
+      var x = marginX
+      for (index, result) in searchResults.enumerated() {
+         // each button gets a title
+         let button = UIButton(type: .system)
+         button.backgroundColor = UIColor.white
+         button.setTitle("\(index)", for: .normal)
+         // setting each button's frame
+         button.frame = CGRect(x: x + paddingHorz,
+                               y: marginY + CGFloat(row)*itemHeight + paddingVert,
+                               width: buttonWidth, height: buttonHeight)
+         // placing all (even unseen) buttons
+         scrollView.addSubview(button)
+         // position the buttons
+         row += 1
+         if row == rowsPerPage {
+            row = 0; x += itemWidth; column += 1
+            
+            if column == columnsPerPage {
+               column = 0; x += marginX * 2
+            }
+         }
+      }
+      
+      // set scroll view content size
+      let buttonsPerPage = columnsPerPage * rowsPerPage
+      let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
+      scrollView.contentSize = CGSize(
+         width: CGFloat(numPages) * viewWidth,
+         height: scrollView.bounds.size.height)
+      print("Number of pages: \(numPages)")
    }
    
    
