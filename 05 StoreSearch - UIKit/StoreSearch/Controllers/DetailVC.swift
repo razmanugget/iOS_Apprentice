@@ -14,7 +14,12 @@ extension DetailVC: UIViewControllerTransitioningDelegate {
       return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
    }
    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-      return SlideOutAnimationController()
+      switch dismissStyle {
+      case .slide:
+         return SlideOutAnimationController()
+      case .fade:
+         return FadeOutAnimationController()
+      }
    }
 }
 

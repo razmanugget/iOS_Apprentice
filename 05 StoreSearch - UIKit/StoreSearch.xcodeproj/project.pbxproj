@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42FC1C723E56EC100E5069E /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */; };
 		F450DA8523E30AB80051FB59 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8423E30AB80051FB59 /* GradientView.swift */; };
 		F450DA8723E310750051FB59 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8623E310750051FB59 /* BounceAnimationController.swift */; };
 		F450DA8923E316A30051FB59 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		F450DA8423E30AB80051FB59 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F450DA8623E310750051FB59 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				F4ECF91423D8DD05005AA92E /* DimmingPresentationController.swift */,
 				F450DA8623E310750051FB59 /* BounceAnimationController.swift */,
 				F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */,
+				F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				F4FFE30823CCC7AD00699A73 /* SceneDelegate.swift in Sources */,
 				F4E2C9F023CF299C0033AE90 /* SearchResultCell.swift in Sources */,
 				F450DA8B23E33BB20051FB59 /* LandscapeVC.swift in Sources */,
+				F42FC1C723E56EC100E5069E /* FadeOutAnimationController.swift in Sources */,
 				F450DA8923E316A30051FB59 /* SlideOutAnimationController.swift in Sources */,
 				F4F8560123D74764000E7C87 /* DetailVC.swift in Sources */,
 				F450DA8523E30AB80051FB59 /* GradientView.swift in Sources */,
