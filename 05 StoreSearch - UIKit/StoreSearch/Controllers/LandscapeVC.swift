@@ -16,6 +16,49 @@ class LandscapeVC: UIViewController {
    @IBOutlet weak var pageControl: UIPageControl!
    
    
+   // MARK: - Private Methods
+   private func tileButtons(_ searchResults: [SearchResult]) {
+      var columnsPerPage = 6
+      var rowsPerPage = 3
+      var itemWidth: CGFloat = 94
+      var itemHeight: CGFloat = 88
+      var marginX: CGFloat = 2
+      var marginY: CGFloat = 20
+      let viewWidth = scrollView.bounds.size.width
+      
+      switch viewWidth {
+      case 568:
+         // 4" device
+         break
+      case 667:
+         // 4.7" device
+         columnsPerPage = 7
+         itemWidth = 95
+         itemHeight = 98
+         marginX = 1
+         marginY = 29
+      case 736:
+         // 5.5" device
+         columnsPerPage = 8
+         rowsPerPage = 4
+         itemWidth = 92
+         marginX = 0
+      case 724:
+         // iPhone X
+         columnsPerPage = 8
+         rowsPerPage = 3
+         itemWidth = 90
+         itemHeight = 98
+         marginX = 2
+         marginY = 29
+      default:
+         break
+      }
+      
+      // TODO: more coming
+   }
+   
+   
    override func viewWillLayoutSubviews() {
       super.viewWillLayoutSubviews()
       let safeFrame = view.safeAreaLayoutGuide.layoutFrame
