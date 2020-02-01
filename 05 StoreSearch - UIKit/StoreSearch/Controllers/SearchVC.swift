@@ -190,6 +190,7 @@ class SearchVC: UIViewController {
       landscapeVC = storyboard!.instantiateViewController(
          withIdentifier: "LandscapeVC") as? LandscapeVC
       if let controller = landscapeVC {
+         controller.searchResults = searchResults
          // set the size / position of the new controller
          controller.view.frame = view.bounds
          controller.view.alpha = 0
