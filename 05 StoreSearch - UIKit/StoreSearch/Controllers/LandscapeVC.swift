@@ -16,6 +16,13 @@ class LandscapeVC: UIViewController {
    @IBOutlet weak var pageControl: UIPageControl!
    
    
+   // MARK: - Actions
+   @IBAction func pageChanged(_ sender: UIPageControl) {
+      scrollView.contentOffset = CGPoint(
+         x: scrollView.bounds.size.width * CGFloat(sender.currentPage), y: 0)
+   }
+   
+   
    // MARK: - Private Methods
    private func tileButtons(_ searchResults: [SearchResult]) {
       var columnsPerPage = 6
@@ -94,6 +101,9 @@ class LandscapeVC: UIViewController {
          width: CGFloat(numPages) * viewWidth,
          height: scrollView.bounds.size.height)
       print("Number of pages: \(numPages)")
+      
+      pageControl.numberOfPages = numPages
+      pageControl.currentPage = 0
    }
    
    
@@ -115,19 +125,30 @@ class LandscapeVC: UIViewController {
    // MARK: - VC Life Cycle
    override func viewDidLoad() {
       super.viewDidLoad()
+      view.backgroundColor = UIColor(patternImage:
+         UIImage(named: "LandscapeBackground")!)
       // remove constraints from main view
       view.removeConstraints(view.constraints)
       view.translatesAutoresizingMaskIntoConstraints = true
       // remove constraints for page control
       pageControl.removeConstraints(pageControl.constraints)
       pageControl.translatesAutoresizingMaskIntoConstraints = true
+      pageControl.numberOfPages = 0
       // remove constraints for scroll view
       scrollView.removeConstraints(scrollView.constraints)
       scrollView.translatesAutoresizingMaskIntoConstraints = true
       
-      view.backgroundColor = UIColor(patternImage:
-         UIImage(named: "LandscapeBackground")!)
-      scrollView.contentSize = CGSize(width: 1000, height: 1000)
+//      scrollView.contentSize = CGSize(width: 1000, height: 1000)
    }
    
+}
+
+
+// MARK: - Extensions
+extension LandscapeVC: UIScrollViewDelegate {
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      let width = scrollView.bounds.size.width
+      let page = Int((scrollView.contentOffset.x + width / 2) / width)
+      pageControl.currentPage = page
+   }
 }

@@ -82,22 +82,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Cb-n4-cYL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Cb-n4-cYL">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="lkR-bR-HXD"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="dB1-42-yMQ"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0o6-uA-3aH" id="7Eb-us-NSm"/>
+                                </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UF4-JF-bJB">
                                 <rect key="frame" x="314" y="169" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="0o6-uA-3aH" eventType="valueChanged" id="kjM-vd-qnq"/>
+                                </connections>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IBX-D0-3yH"/>
                     </view>
                     <connections>
-                        <outlet property="pageControl" destination="UF4-JF-bJB" id="A17-Nr-fhJ"/>
                         <outlet property="scrollView" destination="9Cb-n4-cYL" id="ygu-Ka-4Vm"/>
                     </connections>
                 </viewController>
