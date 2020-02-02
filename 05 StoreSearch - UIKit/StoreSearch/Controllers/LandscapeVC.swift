@@ -13,6 +13,14 @@ class LandscapeVC: UIViewController {
    private var downloads = [URLSessionDownloadTask]()
    var searchResults = [SearchResult]()
    
+   // stop pending downloads
+   deinit {
+      print("deinit\(self)")
+      for task in downloads {
+         task.cancel()
+      }
+   }
+   
    @IBOutlet weak var scrollView: UIScrollView!
    @IBOutlet weak var pageControl: UIPageControl!
    
@@ -128,6 +136,7 @@ class LandscapeVC: UIViewController {
             }
          }
          task.resume()
+         downloads.append(task)
       }
    }
    
@@ -162,8 +171,6 @@ class LandscapeVC: UIViewController {
       // remove constraints for scroll view
       scrollView.removeConstraints(scrollView.constraints)
       scrollView.translatesAutoresizingMaskIntoConstraints = true
-      
-      //      scrollView.contentSize = CGSize(width: 1000, height: 1000)
    }
    
 }
