@@ -11,7 +11,7 @@ import UIKit
 class LandscapeVC: UIViewController {
    private var firstTime = true
    private var downloads = [URLSessionDownloadTask]()
-   var searchResults = [SearchResult]()
+   var search: Search!
    
    // stop pending downloads
    deinit {
@@ -152,7 +152,7 @@ class LandscapeVC: UIViewController {
       // must call after viewDidLoad because vDL resizes view to fit the screen 1st
       if firstTime {
          firstTime = false
-         tileButtons(searchResults)
+         tileButtons(search.searchResults)
       }
    }
    
