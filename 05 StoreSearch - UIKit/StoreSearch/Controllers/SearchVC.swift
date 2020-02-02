@@ -10,48 +10,6 @@ import UIKit
 
 // MARK: - Enums | Extensions | Protocol
 extension SearchVC: UISearchBarDelegate {
-//   func performSearch() {
-//      if !searchBar.text!.isEmpty {
-//         // dismiss the keyboard
-//         searchBar.resignFirstResponder()
-//         dataTask?.cancel()
-//         isLoading = true
-//         tableView.reloadData()
-//
-//         hasSearched = true
-//         searchResults = []
-//
-//         let url = iTunesURL(searchText: searchBar.text!,
-//                             category: segmentedControl.selectedSegmentIndex)
-//         let session = URLSession.shared
-//         dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-//            if let error = error as NSError?, error.code == -999 {
-//               return
-//            } else if let httpResponse = response as? HTTPURLResponse,
-//               httpResponse.statusCode == 200 {
-//               if let data = data {
-//                  self.searchResults = self.parse(data: data)
-//                  self.searchResults.sort(by: <)
-//                  // switching back to the main thread
-//                  DispatchQueue.main.async {
-//                     self.isLoading = false
-//                     self.tableView.reloadData()
-//                  }
-//                  return
-//               }
-//            } else {
-//               print("Failure! \(response!)")
-//            }
-//            DispatchQueue.main.async {
-//               self.hasSearched = false
-//               self.isLoading = false
-//               self.tableView.reloadData()
-//               self.showNetworkError()
-//            }
-//         })
-//         dataTask?.resume()
-//      }
-//   }
    func performSearch() {
       search.performSearch(for: searchBar.text!,
                            category: segmentedControl.selectedSegmentIndex)
