@@ -94,16 +94,27 @@ class LandscapeVC: UIViewController {
          }
       }
       
-      // set scroll view content size
+      
+      // Set scroll view content size
       let buttonsPerPage = columnsPerPage * rowsPerPage
       let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
       scrollView.contentSize = CGSize(
-         width: CGFloat(numPages) * viewWidth,
-         height: scrollView.bounds.size.height)
-      print("Number of pages: \(numPages)")
+        width: CGFloat(numPages) * viewWidth,
+        height: scrollView.bounds.size.height)
       
+      print("Number of pages: \(numPages)")
       pageControl.numberOfPages = numPages
       pageControl.currentPage = 0
+//      // set scroll view content size
+//      let buttonsPerPage = columnsPerPage * rowsPerPage
+//      let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
+//      scrollView.contentSize = CGSize(
+//         width: CGFloat(numPages) * viewWidth,
+//         height: scrollView.bounds.size.height)
+//      print("Number of pages: \(numPages)")
+//
+//      pageControl.numberOfPages = numPages
+//      pageControl.currentPage = 0
    }
    
    
