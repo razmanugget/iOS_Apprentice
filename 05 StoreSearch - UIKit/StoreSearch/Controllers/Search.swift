@@ -18,7 +18,7 @@ class Search {
    private var dataTask: URLSessionDataTask? = nil
    
    
-   func performSearch(for text: String, category: Int) {
+   func performSearch(for text: String, category: Int, completion: @escaping SearchComplete) {
       if !text.isEmpty {
          dataTask?.cancel()
          isLoading = true
@@ -28,6 +28,7 @@ class Search {
          let url = iTunesURL(searchText: text, category: category)
          let session = URLSession.shared
          dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+            var success = false
             // was the search cancelled
             if let error = error as NSError?, error.code == -999 {
                return
@@ -38,12 +39,15 @@ class Search {
                self.searchResults.sort(by: <)
                print("Success!")
                self.isLoading = false
-               return
+               success = true
             }
-            
-            print("Failure! \(response!)")
-            self.hasSearched = false
-            self.isLoading = false
+            if !success {
+               self.hasSearched = false
+               self.isLoading = false
+            }
+            DispatchQueue.main.async {
+               completion(success)
+            }
          })
          dataTask?.resume()
       }
