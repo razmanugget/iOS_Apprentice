@@ -152,7 +152,16 @@ class LandscapeVC: UIViewController {
       // must call after viewDidLoad because vDL resizes view to fit the screen 1st
       if firstTime {
          firstTime = false
-         tileButtons(search.searchResults)
+         switch search.state {
+         case .notSearchedYet:
+            break
+         case .loading:
+            break
+         case .noResults:
+            break
+         case .results(let list):
+            tileButtons(list)
+         }
       }
    }
    

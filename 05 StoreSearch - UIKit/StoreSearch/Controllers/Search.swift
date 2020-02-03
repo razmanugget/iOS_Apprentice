@@ -27,41 +27,41 @@ class Search {
       }
    }
    
-   var searchResults: [SearchResult] = []
-   var hasSearched = false
-   var isLoading = false
+   enum State {
+      case notSearchedYet
+      case loading
+      case noResults
+      case results([SearchResult])
+   }
    
    private var dataTask: URLSessionDataTask? = nil
+   private(set) var state: State = .notSearchedYet
    
    
    func performSearch(for text: String, category: Category, completion: @escaping SearchComplete) {
       if !text.isEmpty {
          dataTask?.cancel()
-         isLoading = true
-         hasSearched = true
-         searchResults = []
-         
+         state = .loading
          let url = iTunesURL(searchText: text, category: category)
          let session = URLSession.shared
+         
          dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+            var newState = State.notSearchedYet
             var success = false
-            // was the search cancelled
-            if let error = error as NSError?, error.code == -999 {
-               return
-            }
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let data = data {
-               self.searchResults = self.parse(data: data)
-               self.searchResults.sort(by: <)
-               print("Success!")
-               self.isLoading = false
+               var searchResults = self.parse(data: data)
+               if searchResults.isEmpty {
+                  newState = .noResults
+               } else {
+                  searchResults.sort(by: <)
+                  newState = .results(searchResults)
+               }
                success = true
             }
-            if !success {
-               self.hasSearched = false
-               self.isLoading = false
-            }
             DispatchQueue.main.async {
+               // return to main thread to update to avoid "race condition" error
+               self.state = newState
                completion(success)
             }
          })

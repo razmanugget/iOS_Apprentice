@@ -39,36 +39,39 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
    func tableView(_ tableView: UITableView,
                   numberOfRowsInSection section: Int)
       -> Int {
-         if search.isLoading {
-            return 1
-         } else if !search.hasSearched {
+         switch search.state {
+         case .notSearchedYet:
             return 0
-         } else if search.searchResults.count == 0 {
+         case .loading:
             return 1
-         } else {
-            return search.searchResults.count
+         case .noResults:
+            return 1
+         case .results(let list):
+            return list.count
          }
    }
    
    func tableView(_ tableView: UITableView,
                   cellForRowAt indexPath: IndexPath)
       -> UITableViewCell {
-         if search.isLoading {
+         switch search.state {
+         case .notSearchedYet:
+            fatalError("Should never get here")
+         case .loading:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.loadingCell, for: indexPath)
             let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
             spinner.startAnimating()
             return cell
-         } else if search.searchResults.count == 0 {
+         case .noResults:
             return tableView.dequeueReusableCell(
                withIdentifier: TableView.CellIdentifiers.nothingFoundCell,
                for: indexPath)
-         } else {
+         case .results(let list):
             let cell = tableView.dequeueReusableCell(
                withIdentifier: TableView.CellIdentifiers.searchResultCell,
                for: indexPath) as! SearchResultCell
             
-            let searchResult = search.searchResults[indexPath.row]
-            
+            let searchResult = list[indexPath.row]
             cell.configure(for: searchResult)
             return cell
          }
@@ -83,9 +86,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
    func tableView(_ tableView: UITableView,
                   willSelectRowAt indexPath: IndexPath)
       -> IndexPath? {
-         if search.searchResults.count == 0 || search.isLoading {
+         switch search.state {
+         case .notSearchedYet, .loading, .noResults:
             return nil
-         } else {
+         case .results:
             return indexPath
          }
    }
@@ -175,10 +179,12 @@ class SearchVC: UIViewController {
    // MARK: - Navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ShowDetail" {
-         let detailVC = segue.destination as! DetailVC
-         let indexPath = sender as! IndexPath
-         let searchResult = search.searchResults[indexPath.row]
-         detailVC.searchResult = searchResult
+         if case .results(let list) = search.state {
+            let detailVC = segue.destination as! DetailVC
+                   let indexPath = sender as! IndexPath
+                   let searchResult = list[indexPath.row]
+                   detailVC.searchResult = searchResult
+         }
       }
    }
    
