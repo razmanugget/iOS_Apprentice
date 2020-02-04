@@ -91,6 +91,8 @@ class LandscapeVC: UIViewController {
          button.setBackgroundImage(UIImage(named: "LandscapeButton"),
                                    for: .normal)
          downloadImage(for: result, andPlaceOn: button)
+         button.tag = 2000 + index
+         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
          // setting each button's frame
          button.frame = CGRect(x: x + paddingHorz,
                                y: marginY + CGFloat(row)*itemHeight + paddingVert,
@@ -187,6 +189,11 @@ class LandscapeVC: UIViewController {
    }
    
    
+   @objc func buttonPressed(_ sender: UIButton) {
+      performSegue(withIdentifier: "ShowDetail", sender: sender)
+   }
+   
+   
    override func viewWillLayoutSubviews() {
       super.viewWillLayoutSubviews()
       let safeFrame = view.safeAreaLayoutGuide.layoutFrame
@@ -210,6 +217,19 @@ class LandscapeVC: UIViewController {
          }
       }
    }
+   
+   
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "ShowDetail" {
+         if case .results(let list) = search.state {
+            let detailVC = segue.destination as! DetailVC
+            let searchResult = list[(sender as! UIButton).tag - 2000]
+            detailVC.searchResult = searchResult
+         }
+      }
+   }
+   
    
    // MARK: - VC Life Cycle
    override func viewDidLoad() {
