@@ -140,6 +140,15 @@ class LandscapeVC: UIViewController {
       }
    }
    
+   private func showSpinner() {
+      let spinner = UIActivityIndicatorView(style: .large)
+      spinner.center = CGPoint(x: scrollView.bounds.midX + 0.5,
+                               y: scrollView.bounds.midY + 0.5)
+      spinner.tag = 1000
+      view.addSubview(spinner)
+      spinner.startAnimating()
+   }
+   
    
    override func viewWillLayoutSubviews() {
       super.viewWillLayoutSubviews()
@@ -156,7 +165,7 @@ class LandscapeVC: UIViewController {
          case .notSearchedYet:
             break
          case .loading:
-            break
+            showSpinner()
          case .noResults:
             break
          case .results(let list):
