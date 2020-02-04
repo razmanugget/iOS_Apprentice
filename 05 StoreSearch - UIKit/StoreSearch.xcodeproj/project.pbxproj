@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F42F937423E9C72E0074BD1F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F937623E9C72E0074BD1F /* NothingFoundCell.xib */; };
+		F42F937823E9CFD30074BD1F /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F937A23E9CFD30074BD1F /* LoadingCell.xib */; };
 		F42FC1C723E56EC100E5069E /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */; };
 		F450DA8523E30AB80051FB59 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8423E30AB80051FB59 /* GradientView.swift */; };
 		F450DA8723E310750051FB59 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8623E310750051FB59 /* BounceAnimationController.swift */; };
 		F450DA8923E316A30051FB59 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */; };
 		F450DA8B23E33BB20051FB59 /* LandscapeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450DA8A23E33BB20051FB59 /* LandscapeVC.swift */; };
 		F472839723CE3F450017E7AA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472839623CE3F450017E7AA /* SearchResult.swift */; };
-		F48E174623D366B300E61BDC /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48E174523D366B300E61BDC /* LoadingCell.xib */; };
 		F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */; };
 		F4E2C9F023CF299C0033AE90 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */; };
 		F4ECF91523D8DD05005AA92E /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECF91423D8DD05005AA92E /* DimmingPresentationController.swift */; };
@@ -31,13 +31,14 @@
 /* Begin PBXFileReference section */
 		F42F937523E9C72E0074BD1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		F42F937723E9C9550074BD1F /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		F42F937923E9CFD30074BD1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		F42F937C23E9D2300074BD1F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		F450DA8423E30AB80051FB59 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F450DA8623E310750051FB59 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		F450DA8A23E33BB20051FB59 /* LandscapeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeVC.swift; sourceTree = "<group>"; };
 		F472839623CE3F450017E7AA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		F48E174523D366B300E61BDC /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F4ECF91423D8DD05005AA92E /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -80,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FFE30B23CCC7AD00699A73 /* Main.storyboard */,
-				F48E174523D366B300E61BDC /* LoadingCell.xib */,
+				F42F937A23E9CFD30074BD1F /* LoadingCell.xib */,
 				F42F937623E9C72E0074BD1F /* NothingFoundCell.xib */,
 				F4E2C9EB23CED3270033AE90 /* SearchResultCell.xib */,
 				F450DA8423E30AB80051FB59 /* GradientView.swift */,
@@ -199,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FFE30F23CCC7AF00699A73 /* Assets.xcassets in Resources */,
-				F48E174623D366B300E61BDC /* LoadingCell.xib in Resources */,
+				F42F937823E9CFD30074BD1F /* LoadingCell.xib in Resources */,
 				F4E2C9EC23CED3270033AE90 /* SearchResultCell.xib in Resources */,
 				F42F937423E9C72E0074BD1F /* NothingFoundCell.xib in Resources */,
 				F4FFE30D23CCC7AD00699A73 /* Main.storyboard in Resources */,
@@ -240,6 +241,15 @@
 				F42F937723E9C9550074BD1F /* nl */,
 			);
 			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		F42F937A23E9CFD30074BD1F /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42F937923E9CFD30074BD1F /* Base */,
+				F42F937C23E9D2300074BD1F /* nl */,
+			);
+			name = LoadingCell.xib;
 			sourceTree = "<group>";
 		};
 		F4FFE30B23CCC7AD00699A73 /* Main.storyboard */ = {
