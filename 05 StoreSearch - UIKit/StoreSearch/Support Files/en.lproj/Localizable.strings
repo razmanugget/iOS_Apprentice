@@ -35,3 +35,6 @@
 
 /* Localized kind: TV Episode */
 "TV Episode" = "TV serie";
+
+/* Localized showNetwork Error message title*/
+"Error alert: title" = "Dutch here";
