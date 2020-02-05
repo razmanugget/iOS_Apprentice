@@ -122,7 +122,8 @@ class LandscapeVC: UIViewController {
       pageControl.currentPage = 0
    }
    
-   private func downloadImage(for searchResult: SearchResult, andPlaceOn button: UIButton) {
+   private func downloadImage(for searchResult: SearchResult,
+                              andPlaceOn button: UIButton) {
       if let url = URL(string: searchResult.imageSmall) {
          let task = URLSession.shared.downloadTask(with: url) {
             [weak button] url, response, error in

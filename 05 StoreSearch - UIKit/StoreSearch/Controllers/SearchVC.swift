@@ -59,7 +59,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
          case .notSearchedYet:
             fatalError("Should never get here")
          case .loading:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.loadingCell, for: indexPath)
+            let cell = tableView.dequeueReusableCell(
+               withIdentifier: TableView.CellIdentifiers.loadingCell, for: indexPath)
             let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
             spinner.startAnimating()
             return cell
@@ -195,7 +196,8 @@ class SearchVC: UIViewController {
    
    // MARK: - View Controller Life Cycle
    override func willTransition(
-      to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+      to newCollection: UITraitCollection,
+      with coordinator: UIViewControllerTransitionCoordinator) {
       super.willTransition(to: newCollection, with: coordinator)
       
       switch newCollection.verticalSizeClass {

@@ -38,7 +38,8 @@ class Search {
    private(set) var state: State = .notSearchedYet
    
    
-   func performSearch(for text: String, category: Category, completion: @escaping SearchComplete) {
+   func performSearch(for text: String, category: Category,
+                      completion: @escaping SearchComplete) {
       if !text.isEmpty {
          dataTask?.cancel()
          state = .loading
@@ -49,7 +50,8 @@ class Search {
             var newState = State.notSearchedYet
             var success = false
             
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let data = data {
+            if let httpResponse = response as? HTTPURLResponse,
+               httpResponse.statusCode == 200, let data = data {
                var searchResults = self.parse(data: data)
                if searchResults.isEmpty {
                   newState = .noResults
@@ -72,8 +74,10 @@ class Search {
    // MARK: - Helper Methods
    func iTunesURL(searchText: String, category: Category) -> URL {
       let kind = category.type
-      let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-      let urlString =  "https://itunes.apple.com/search?" + "term=\(encodedText)&limit=200&entity=\(kind)"
+      let encodedText = searchText.addingPercentEncoding(
+         withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+      let urlString =  "https://itunes.apple.com/search?" +
+      "term=\(encodedText)&limit=200&entity=\(kind)"
       let url = URL(string: urlString)
       return url!
    }

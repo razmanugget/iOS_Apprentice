@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  StoreSearch
+
+  Created by Rami on 2/5/20.
+  Copyright © 2020 Lyfebug. All rights reserved.
+*/
+
+/* Localized kind: Album */
+"Album" = "Album";
+
+/* Localized kind: Software */
+"App" = "App";
+
+/* Localized kind: Audio Book */
+"Audio Book" = "Audioboek";
+
+/* Localized kind: Book */
+"Book" = "Boek";
+
+/* Localized kind: E-Book */
+"E-Book" = "E-Boek";
+
+/* Localized kind: Feature Movie */
+"Movie" = "Film";
+
+/* Localized kind: Music Video */
+"Music Video" = "Videoclip";
+
+/* Localized kind: Podcast */
+"Podcast" = "Podcast";
+
+/* Localized kind: Song */
+"Song" = "Liedje";
+
+/* Localized kind: TV Episode */
+"TV Episode" = "TV serie";

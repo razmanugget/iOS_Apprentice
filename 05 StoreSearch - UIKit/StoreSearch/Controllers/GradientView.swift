@@ -26,7 +26,9 @@ class GradientView: UIView {
       let locations: [CGFloat] = [0, 1]
       
       let colorSpace = CGColorSpaceCreateDeviceRGB()
-      let gradient = CGGradient(colorSpace: colorSpace, colorComponents: components, locations: locations, count: 2)
+      let gradient = CGGradient(colorSpace: colorSpace,
+                                colorComponents: components,
+                                locations: locations, count: 2)
       // using bounds allows for auto resizing
       let x = bounds.midX
       let y = bounds.midY
