@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="landscape" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xFS-P1-7dO">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController title="Search" id="BYZ-38-t0r" customClass="SearchVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCG-Q8-ZaQ">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="k2D-gf-ycH"/>
@@ -24,7 +24,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" id="vO8-cA-HD0">
-                                <rect key="frame" x="0.0" y="8" width="667" height="56"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -32,13 +32,13 @@
                                 </connections>
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" id="IKb-Lu-Lbp">
-                                <rect key="frame" x="0.0" y="76" width="667" height="44"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="JXZ-Uj-qpk">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="1Jn-EP-tjd">
-                                            <rect key="frame" x="183.5" y="0.0" width="300" height="32"/>
+                                            <rect key="frame" x="37.5" y="6" width="300" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="All"/>
@@ -72,14 +72,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="-65" y="136"/>
         </scene>
         <!--Landscape-->
         <scene sceneID="ez4-nf-IaK">
             <objects>
                 <viewController storyboardIdentifier="LandscapeVC" id="0o6-uA-3aH" userLabel="Landscape" customClass="LandscapeVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VbR-cy-adx">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Cb-n4-cYL">
@@ -110,18 +110,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRd-iA-lAA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.18140929535232" y="1232.8"/>
+            <point key="canvasLocation" x="818" y="137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Ff-am-FpX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sov-Tt-3UD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="xUs-Jj-Y92" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y7F-Nh-tve">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2Wm-xt-Xe9" kind="relationship" relationship="rootViewController" id="ely-gs-9gM"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-66" y="906"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="fgS-cI-PFy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dS6-rD-t8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <splitViewController id="xFS-P1-7dO" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="YSx-XH-43o"/>
+                        <segue destination="xUs-Jj-Y92" kind="relationship" relationship="detailViewController" id="7a6-Ok-P4Q"/>
+                    </connections>
+                </splitViewController>
+            </objects>
+            <point key="canvasLocation" x="-974" y="498"/>
         </scene>
         <!--Detail-->
         <scene sceneID="HfF-xw-XiE">
             <objects>
                 <viewController id="2Wm-xt-Xe9" userLabel="Detail" customClass="DetailVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wT9-Hj-6Mu">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-Tp-Jwg" userLabel="Pop-up View">
-                                <rect key="frame" x="213.5" y="66.5" width="240" height="242"/>
+                                <rect key="frame" x="67.5" y="212.5" width="240" height="242"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hPk-T8-vlG">
                                         <rect key="frame" x="70" y="8" width="100" height="100"/>
@@ -220,6 +249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2yQ-ze-X7O"/>
                     </view>
+                    <navigationItem key="navigationItem" id="NsT-jh-ZVY"/>
                     <connections>
                         <outlet property="artistNameLabel" destination="1wh-7h-zwh" id="ZwS-3y-gHy"/>
                         <outlet property="artworkImageView" destination="hPk-T8-vlG" id="8SK-uZ-Jz3"/>
@@ -232,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWp-BP-A0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="703"/>
+            <point key="canvasLocation" x="817" y="907"/>
         </scene>
     </scenes>
     <resources>
@@ -240,6 +270,6 @@
         <image name="PriceButton" width="11" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Mg-kq-CNY"/>
+        <segue reference="ely-gs-9gM"/>
     </inferredMetricsTieBreakers>
 </document>
