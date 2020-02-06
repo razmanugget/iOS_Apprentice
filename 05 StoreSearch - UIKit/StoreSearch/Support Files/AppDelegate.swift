@@ -10,26 +10,37 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+   // MARK: - Properties
+   var window: UIWindow?
+   
+   var splitVC: UISplitViewController {
+      return window!.rootViewController as! UISplitViewController
+   }
+   
+   var searchVC: SearchVC {
+      return splitVC.viewControllers.first as! SearchVC
+   }
+   
+   var detailNavController: UINavigationController {
+      return splitVC.viewControllers.last as! UINavigationController
+   }
+   
+   var detailVC: DetailVC {
+      return detailNavController.topViewController as! DetailVC
+   }
+   
    
    func application(_ application: UIApplication,
-                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
+                    didFinishLaunchingWithOptions launchOptions:
+      [UIApplication.LaunchOptionsKey: Any]?)
       -> Bool {
          customizeAppearance()
+         detailVC.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+         searchVC.splitViewDetail = detailVC
          return true
    }
+
    
-   // MARK: UISceneSession Lifecycle
-   func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-      // Called when a new scene session is being created.
-      // Use this method to select a configuration to create the new scene with.
-      return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-   }
-   
-   func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-      // Called when the user discards a scene session.
-      // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-      // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-   }
    
    // MARK: - Helper Methods
    func customizeAppearance() {
@@ -39,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 blue: 160/255, alpha: 1)
       UISearchBar.appearance().barTintColor = barTintColor
       UISearchBar.appearance().backgroundColor = searchInput
-      //            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.searchInput
    }
    
 }

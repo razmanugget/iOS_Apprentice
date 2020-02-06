@@ -102,6 +102,7 @@ class SearchVC: UIViewController {
    // MARK: - Variables/Constants
    private let search = Search()
    var landscapeVC: LandscapeVC?
+   weak var splitViewDetail: DetailVC?
    
    @IBOutlet weak var segmentedControl: UISegmentedControl!
    @IBOutlet weak var searchBar: UISearchBar!
@@ -213,6 +214,7 @@ class SearchVC: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      title = NSLocalizedString("Search", comment: "split view master button")
       
       searchBar.becomeFirstResponder()
       // allow for 20pt status bar, 44pt search bar

@@ -146,11 +146,11 @@
             <objects>
                 <viewController id="2Wm-xt-Xe9" userLabel="Detail" customClass="DetailVC" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wT9-Hj-6Mu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-Tp-Jwg" userLabel="Pop-up View">
-                                <rect key="frame" x="67.5" y="212.5" width="240" height="242"/>
+                                <rect key="frame" x="67.5" y="202.5" width="240" height="242"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hPk-T8-vlG">
                                         <rect key="frame" x="70" y="8" width="100" height="100"/>
@@ -270,6 +270,6 @@
         <image name="PriceButton" width="11" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ely-gs-9gM"/>
+        <segue reference="1Mg-kq-CNY"/>
     </inferredMetricsTieBreakers>
 </document>
