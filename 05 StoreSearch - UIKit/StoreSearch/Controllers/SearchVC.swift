@@ -81,8 +81,15 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
    
    func tableView(_ tableView: UITableView,
                   didSelectRowAt indexPath: IndexPath) {
-      tableView.deselectRow(at: indexPath, animated: true)
-      performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+      searchBar.resignFirstResponder()
+      if view.window!.rootViewController!.traitCollection.horizontalSizeClass == .compact {
+         tableView.deselectRow(at: indexPath, animated: true)
+         performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+      } else {
+         if case .results(let list) = search.state {
+            splitViewDetail?.searchResult = list[indexPath.row]
+         }
+      }
    }
    
    func tableView(_ tableView: UITableView,
