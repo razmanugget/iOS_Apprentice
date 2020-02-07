@@ -227,6 +227,7 @@ class LandscapeVC: UIViewController {
             let detailVC = segue.destination as! DetailVC
             let searchResult = list[(sender as! UIButton).tag - 2000]
             detailVC.searchResult = searchResult
+            detailVC.isPopUp = true
          }
       }
    }

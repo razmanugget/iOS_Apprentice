@@ -110,12 +110,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRd-iA-lAA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="137"/>
+            <point key="canvasLocation" x="817" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Ff-am-FpX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sov-Tt-3UD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="xUs-Jj-Y92" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y7F-Nh-tve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -125,19 +124,20 @@
                         <segue destination="2Wm-xt-Xe9" kind="relationship" relationship="rootViewController" id="ely-gs-9gM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sov-Tt-3UD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-66" y="906"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="fgS-cI-PFy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dS6-rD-t8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <splitViewController id="xFS-P1-7dO" sceneMemberID="viewController">
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="YSx-XH-43o"/>
                         <segue destination="xUs-Jj-Y92" kind="relationship" relationship="detailViewController" id="7a6-Ok-P4Q"/>
                     </connections>
                 </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dS6-rD-t8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-974" y="498"/>
         </scene>

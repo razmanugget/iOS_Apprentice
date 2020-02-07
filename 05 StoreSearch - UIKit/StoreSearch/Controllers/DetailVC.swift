@@ -145,6 +145,9 @@ class DetailVC: UIViewController {
       } else {
          view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
          popupView.isHidden = true
+         if let displayName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+            title = displayName
+         }
       }
       
       if searchResult != nil {

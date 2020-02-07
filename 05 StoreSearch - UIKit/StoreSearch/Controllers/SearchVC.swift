@@ -89,6 +89,9 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
          if case .results(let list) = search.state {
             splitViewDetail?.searchResult = list[indexPath.row]
          }
+         if splitViewController!.displayMode != .allVisible {
+            hideMasterPane()
+         }
       }
    }
    
@@ -129,6 +132,15 @@ class SearchVC: UIViewController {
       }
    }
    
+   
+   // MARK: - Private Methods
+   private func hideMasterPane() {
+      UIView.animate(withDuration: 0.25, animations: {
+         self.splitViewController!.preferredDisplayMode = .primaryHidden
+      }, completion: { _ in
+         self.splitViewController!.preferredDisplayMode = .automatic
+      })
+   }
    
    // MARK: - Helper Methods
    func showNetworkError() {
@@ -198,6 +210,7 @@ class SearchVC: UIViewController {
             let indexPath = sender as! IndexPath
             let searchResult = list[indexPath.row]
             detailVC.searchResult = searchResult
+            detailVC.isPopUp = true
          }
       }
    }
@@ -223,7 +236,10 @@ class SearchVC: UIViewController {
       super.viewDidLoad()
       title = NSLocalizedString("Search", comment: "split view master button")
       
-      searchBar.becomeFirstResponder()
+      if UIDevice.current.userInterfaceIdiom != .pad {
+         searchBar.becomeFirstResponder()
+      }
+      
       // allow for 20pt status bar, 44pt search bar
       tableView.contentInset = UIEdgeInsets(top: 108, left: 0,
                                             bottom: 0, right: 0)
