@@ -30,6 +30,11 @@ extension DetailVC: UIGestureRecognizerDelegate {
    }
 }
 
+extension DetailVC: MenuVCDelegate {
+   func menuVCSendEmail(_ controller: MenuVC) {
+   }
+}
+
 
 class DetailVC: UIViewController {
    // MARK: - Variables | Outlets
@@ -126,6 +131,16 @@ class DetailVC: UIViewController {
       }
       popupView.isHidden = false
    }
+   
+   
+   // MARK: - Navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "ShowMenu" {
+         let controller = segue.destination as! MenuVC
+         controller.delegate = self
+      }
+   }
+   
    
    // MARK: - View Controller Life Cycle
    override func viewDidLoad() {
