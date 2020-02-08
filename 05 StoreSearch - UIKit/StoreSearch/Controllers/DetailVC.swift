@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 // MARK: - Extensions
 extension DetailVC: UIViewControllerTransitioningDelegate {
@@ -32,6 +33,14 @@ extension DetailVC: UIGestureRecognizerDelegate {
 
 extension DetailVC: MenuVCDelegate {
    func menuVCSendEmail(_ controller: MenuVC) {
+      dismiss(animated: true) {
+         if MFMailComposeViewController.canSendMail() {
+            let controller = MFMailComposeViewController()
+            controller.setSubject(NSLocalizedString("Support Request", comment: "Email subject"))
+            controller.setToRecipients(["rami_s@hotmail.com"])
+            self.present(controller, animated: true, completion: nil)
+         }
+      }
    }
 }
 
