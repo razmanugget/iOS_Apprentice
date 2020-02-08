@@ -222,14 +222,23 @@ class SearchVC: UIViewController {
       with coordinator: UIViewControllerTransitionCoordinator) {
       super.willTransition(to: newCollection, with: coordinator)
       
-      switch newCollection.verticalSizeClass {
-      case .compact:
-         showLandscape(with: coordinator)
-      case .regular, .unspecified:
-         hideLandscape(with: coordinator)
-      @unknown default:
-         fatalError()
+      let rect = UIScreen.main.bounds
+      if (rect.width == 736 && rect.height == 414) ||
+         (rect.width == 414 && rect.height == 736) {
+         if presentedViewController != nil {
+            dismiss(animated: true, completion: nil)
+         }
+      } else if UIDevice.current.userInterfaceIdiom != .pad {
+         switch newCollection.verticalSizeClass {
+         case .compact:
+            showLandscape(with: coordinator)
+         case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+         @unknown default:
+            fatalError()
+         }
       }
+      
    }
    
    override func viewDidLoad() {
