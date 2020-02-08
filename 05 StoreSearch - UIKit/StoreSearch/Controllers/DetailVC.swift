@@ -163,8 +163,16 @@ class DetailVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
      
-      view.tintColor = UIColor(red: 20/255, green: 160/255,
-                               blue: 160/255, alpha: 1)
+      
+      if (traitCollection.userInterfaceStyle == .light) {
+         view.tintColor = UIColor(red: 20/255, green: 160/255,
+                                     blue: 160/255, alpha: 1)
+      } else {
+         view.tintColor = UIColor(red: 140/255, green: 140/255,
+                                     blue: 240/255, alpha: 1)
+      }
+   
+      
       popupView.layer.cornerRadius = 10
       
       if isPopUp {
