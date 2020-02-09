@@ -1,5 +1,5 @@
 //
-//  DetailVC.swift
+//  DetailViewController.swift
 //  StoreSearch
 //
 //  Created by Rami on 1/21/20.
@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 // MARK: - Extensions
-extension DetailVC: UIViewControllerTransitioningDelegate {
+extension DetailViewController: UIViewControllerTransitioningDelegate {
    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
       return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
    }
@@ -24,15 +24,15 @@ extension DetailVC: UIViewControllerTransitioningDelegate {
    }
 }
 
-extension DetailVC: UIGestureRecognizerDelegate {
+extension DetailViewController: UIGestureRecognizerDelegate {
    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                           shouldReceive touch: UITouch) -> Bool {
       return (touch.view === self.view)
    }
 }
 
-extension DetailVC: MenuVCDelegate {
-   func menuVCSendEmail(_ controller: MenuVC) {
+extension DetailViewController: MenuViewControllerDelegate {
+   func MenuViewControllerSendEmail(_ controller: MenuViewController) {
       dismiss(animated: true) {
          if MFMailComposeViewController.canSendMail() {
             let controller = MFMailComposeViewController()
@@ -46,14 +46,14 @@ extension DetailVC: MenuVCDelegate {
    }
 }
 
-extension DetailVC: MFMailComposeViewControllerDelegate {
+extension DetailViewController: MFMailComposeViewControllerDelegate {
    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
       dismiss(animated: true, completion: nil)
    }
 }
 
 
-class DetailVC: UIViewController {
+class DetailViewController: UIViewController {
    // MARK: - Variables | Outlets
    enum AnimationStyle {
       case slide
@@ -153,7 +153,7 @@ class DetailVC: UIViewController {
    // MARK: - Navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ShowMenu" {
-         let controller = segue.destination as! MenuVC
+         let controller = segue.destination as! MenuViewController
          controller.delegate = self
       }
    }

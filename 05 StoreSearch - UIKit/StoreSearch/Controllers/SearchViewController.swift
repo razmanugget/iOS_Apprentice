@@ -111,8 +111,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 class SearchViewController: UIViewController {
    // MARK: - Variables/Constants
    private let search = Search()
-   var landscapeVC: LandscapeVC?
-   weak var splitViewDetail: DetailVC?
+   var landscapeVC: LandscapeViewController?
+   weak var splitViewDetail: DetailViewController?
    
    @IBOutlet weak var segmentedControl: UISegmentedControl!
    @IBOutlet weak var searchBar: UISearchBar!
@@ -160,7 +160,7 @@ class SearchViewController: UIViewController {
       guard landscapeVC == nil else { return }
       // with no segue, must instantiate the VC manually
       landscapeVC = storyboard!.instantiateViewController(
-         withIdentifier: "LandscapeVC") as? LandscapeVC
+         withIdentifier: "LandscapeVC") as? LandscapeViewController
       if let controller = landscapeVC {
          controller.search = search
          // set the size / position of the new controller
@@ -206,7 +206,7 @@ class SearchViewController: UIViewController {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ShowDetail" {
          if case .results(let list) = search.state {
-            let detailVC = segue.destination as! DetailVC
+            let detailVC = segue.destination as! DetailViewController
             let indexPath = sender as! IndexPath
             let searchResult = list[indexPath.row]
             detailVC.searchResult = searchResult

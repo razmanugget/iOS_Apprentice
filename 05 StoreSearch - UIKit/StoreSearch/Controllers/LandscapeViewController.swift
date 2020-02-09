@@ -224,7 +224,7 @@ class LandscapeViewController: UIViewController {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "ShowDetail" {
          if case .results(let list) = search.state {
-            let detailVC = segue.destination as! DetailVC
+            let detailVC = segue.destination as! DetailViewController
             let searchResult = list[(sender as! UIButton).tag - 2000]
             detailVC.searchResult = searchResult
             detailVC.isPopUp = true

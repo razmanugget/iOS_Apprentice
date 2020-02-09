@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return splitVC.viewControllers.last as! UINavigationController
    }
    
-   var detailVarVC: DetailVC {
-      return detailNavController.topViewController as! DetailVC
+   var detailVarVC: DetailViewController {
+      return detailNavController.topViewController as! DetailViewController
    }
    
    
