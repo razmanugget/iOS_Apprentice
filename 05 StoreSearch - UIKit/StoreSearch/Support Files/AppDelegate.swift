@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return window!.rootViewController as! UISplitViewController
    }
    
-   var searchVC: SearchVC {
-      return splitVC.viewControllers.first as! SearchVC
+   var searchVC: SearchViewController {
+      return splitVC.viewControllers.first as! SearchViewController
    }
    
    var detailNavController: UINavigationController {

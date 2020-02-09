@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Enums | Extensions | Protocol
-extension SearchVC: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
    func performSearch() {
       if let category = Search.Category(
          rawValue: segmentedControl.selectedSegmentIndex) {
@@ -36,7 +36,7 @@ extension SearchVC: UISearchBarDelegate {
    }
 }
 
-extension SearchVC: UITableViewDelegate, UITableViewDataSource {
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
    func tableView(_ tableView: UITableView,
                   numberOfRowsInSection section: Int)
       -> Int {
@@ -108,7 +108,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-class SearchVC: UIViewController {
+class SearchViewController: UIViewController {
    // MARK: - Variables/Constants
    private let search = Search()
    var landscapeVC: LandscapeVC?

@@ -1,5 +1,5 @@
 //
-//  LandscapeVC.swift
+//  LandscapeViewController.swift
 //  StoreSearch
 //
 //  Created by Rami on 1/30/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LandscapeVC: UIViewController {
+class LandscapeViewController: UIViewController {
    private var firstTime = true
    private var downloads = [URLSessionDownloadTask]()
    var search: Search!
@@ -254,7 +254,7 @@ class LandscapeVC: UIViewController {
 
 
 // MARK: - Extensions
-extension LandscapeVC: UIScrollViewDelegate {
+extension LandscapeViewController: UIScrollViewDelegate {
    func scrollViewDidScroll(_ scrollView: UIScrollView) {
       let width = scrollView.bounds.size.width
       let page = Int((scrollView.contentOffset.x + width / 2) / width)
