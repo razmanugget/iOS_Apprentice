@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return splitVC.viewControllers.last as! UINavigationController
    }
    
-   var detailVarVC: DetailViewController {
+   var detailVC: DetailViewController {
       return detailNavController.topViewController as! DetailViewController
    }
    
@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       [UIApplication.LaunchOptionsKey: Any]?)
       -> Bool {
          customizeAppearance()
-         detailVarVC.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-         searchVC.splitViewDetail = detailVarVC
+         detailVC.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+         searchVC.splitViewDetail = detailVC
          return true
    }
 
