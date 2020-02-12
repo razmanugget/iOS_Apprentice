@@ -94,6 +94,7 @@
 				F42F937A23E9CFD30074BD1F /* LoadingCell.xib */,
 				F42F937623E9C72E0074BD1F /* NothingFoundCell.xib */,
 				F4794C4823EB0F04007A38A6 /* SearchResultCell.xib */,
+				F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,8 +102,13 @@
 		F4F855FF23D74724000E7C87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F450DA8423E30AB80051FB59 /* GradientView.swift */,
+				F4ECF91423D8DD05005AA92E /* DimmingPresentationController.swift */,
+				F450DA8623E310750051FB59 /* BounceAnimationController.swift */,
+				F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */,
+				F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */,
+				F4F0C71A23E6FADC00D0D61D /* Search.swift */,
 				F472839623CE3F450017E7AA /* SearchResult.swift */,
-				F4E2C9EF23CF299C0033AE90 /* SearchResultCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,15 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				F4F8560023D74764000E7C87 /* DetailViewController.swift */,
-				F450DA8423E30AB80051FB59 /* GradientView.swift */,
 				F4A4B07423EECDC1004A06B8 /* MenuViewController.swift */,
 				F4FFE30923CCC7AD00699A73 /* SearchViewController.swift */,
 				F450DA8A23E33BB20051FB59 /* LandscapeViewController.swift */,
-				F4ECF91423D8DD05005AA92E /* DimmingPresentationController.swift */,
-				F450DA8623E310750051FB59 /* BounceAnimationController.swift */,
-				F450DA8823E316A30051FB59 /* SlideOutAnimationController.swift */,
-				F42FC1C623E56EC100E5069E /* FadeOutAnimationController.swift */,
-				F4F0C71A23E6FADC00D0D61D /* Search.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
