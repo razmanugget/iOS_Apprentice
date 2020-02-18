@@ -55,15 +55,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F413765023C8D14A003CD1F1 /* DataModels */ = {
+		F41E4E4A23FBE3F0005C3B06 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F46E1D3A23C6FB590018F2A7 /* HudView.swift */,
+				F45D4FF123C7C0F400CBA053 /* Functions.swift */,
 				F42A691B23C0B1A900E3FB51 /* MyLocations.xcdatamodeld */,
 				F413764923C8C615003CD1F1 /* DataModel.xcdatamodeld */,
 				F413764C23C8D12B003CD1F1 /* Location+CoreDataClass.swift */,
 				F413764D23C8D12B003CD1F1 /* Location+CoreDataProperties.swift */,
 			);
-			path = DataModels;
+			name = Models;
+			path = DataModels/Models;
 			sourceTree = "<group>";
 		};
 		F42A690423C0B1A900E3FB51 = {
@@ -87,10 +90,8 @@
 			children = (
 				F45695CA23C2046100917B51 /* Support Files */,
 				F45695CB23C2046900917B51 /* Controllers */,
-				F42A691823C0B1A900E3FB51 /* Main.storyboard */,
-				F42A692023C0B1AD00E3FB51 /* LaunchScreen.storyboard */,
 				F45D4FF023C765B900CBA053 /* Views */,
-				F413765023C8D14A003CD1F1 /* DataModels */,
+				F41E4E4A23FBE3F0005C3B06 /* Models */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -109,7 +110,6 @@
 		F45695CB23C2046900917B51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F45D4FF123C7C0F400CBA053 /* Functions.swift */,
 				F42A691423C0B1A900E3FB51 /* CurrentLocationVC.swift */,
 				F456781423C4DD1C00BE95A1 /* LocationDetailsVC.swift */,
 				F42A691623C0B1A900E3FB51 /* SecondViewController.swift */,
@@ -121,7 +121,8 @@
 		F45D4FF023C765B900CBA053 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F46E1D3A23C6FB590018F2A7 /* HudView.swift */,
+				F42A692023C0B1AD00E3FB51 /* LaunchScreen.storyboard */,
+				F42A691823C0B1A900E3FB51 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
