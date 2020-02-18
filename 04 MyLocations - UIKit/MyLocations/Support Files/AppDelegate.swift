@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       -> Bool {
          let tabController = window!.rootViewController as! UITabBarController
          
-         if let tabViewController = tabController.viewControllers {
-            let navController = tabViewController[0] as! UINavigationController
+         if let tabViewControllers = tabController.viewControllers {
+            let navController = tabViewControllers[0] as! UINavigationController
             let controller = navController.viewControllers.first as! CurrentLocationVC
             controller.managedObjectContext = managedObjectContext
          }
