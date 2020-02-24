@@ -12,7 +12,6 @@ import CoreData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
    var window: UIWindow?
-
    
    lazy var persistentContainer: NSPersistentContainer = {
        let container = NSPersistentContainer(name: "DataModel")
@@ -26,14 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
    lazy var managedObjectContext: NSManagedObjectContext =  persistentContainer.viewContext
 
+
    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
       guard let _ = (scene as? UIWindowScene) else { return }
-      let tabController = window!.rootViewController as! UITabBarController
       
+      let tabController = window!.rootViewController as! UITabBarController
+
       if let tabViewController = tabController.viewControllers {
-         let navController = tabViewController[0] as! UINavigationController
-         let controller = navController.viewControllers.first as! CurrentLocationVC
-         controller.managedObjectContext = managedObjectContext
+          let navController = tabViewController[0] as! UINavigationController
+          let controller = navController.viewControllers.first as! CurrentLocationVC
+          controller.managedObjectContext = managedObjectContext
       }
    }
 

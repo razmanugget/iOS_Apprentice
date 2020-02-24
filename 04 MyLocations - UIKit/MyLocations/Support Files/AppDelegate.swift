@@ -13,19 +13,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
    
-   lazy var persistentContainer: NSPersistentContainer = {
-      let container = NSPersistentContainer(name: "DataModel")
-      container.loadPersistentStores { (storeDescription, error) in
-         if let error = error {
-            fatalError("Could not load data store: \(error)")
-         }
-      }
-      return container
-   }()
-   
-   lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
-   
-   
    func application(_ application: UIApplication,
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
       -> Bool {
@@ -34,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          if let tabViewControllers = tabController.viewControllers {
             let navController = tabViewControllers[0] as! UINavigationController
             let controller = navController.viewControllers.first as! CurrentLocationVC
-            controller.managedObjectContext = managedObjectContext
+            controller.managedObject = managedObjectContext
          }
          return true
    }
